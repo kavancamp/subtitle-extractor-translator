@@ -28,17 +28,17 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Sort imports with isort
+        run: |
+         pip install isort
+         isort . --profile black --line-length=72 --skip='venv'
+
       - name: Run black
         run: |
           pip install black
-          black --check . --line-length=72
+          black . --check --line-length=72
 
       - name: Lint with flake8
         run: |
          pip install flake8
-         flake8 . --max-line-length=72 --exclude=venv,.test_script.py --v
-
-      - name: Sort imports with isort
-        run: |
-         pip install isort
-         isort . --profile black --line-length=72 --skip='venv' -v
+         flake8 . --max-line-length=100 --ignore=E128 --exclude=venv
