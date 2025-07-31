@@ -11,7 +11,7 @@ def cli():
 @cli.command()
 @click.argument(
     "video_path",
-    type=click.Path(exists=True),
+    type=click.Path(exists=False),
 )
 @click.option(
     "--output",
@@ -31,7 +31,7 @@ def extract(
 @cli.command()
 @click.argument(
     "video_path",
-    type=click.Path(exists=True),
+    type=click.Path(exists=False),
 )
 @click.option(
     "--language",
@@ -60,7 +60,7 @@ def transcribe(
 @cli.command()
 @click.argument(
     "srt_file",
-    type=click.Path(exists=True),
+    type=click.Path(exists=False),
 )
 @click.option(
     "--target-lang",
