@@ -1,11 +1,13 @@
-[tool.black]
-line-length = 72
-
-[tool.flake8]
-max-line-length = 72
-exclude = ['venv','test_script.py']
-
 [tool.isort]
 profile = "black" 
-line_length = 72
+line_length = 88
 skip = ["env", "venv", ".venv", "build", "dist"]
+
+[tool.black]
+line-length = 88
+
+[tool.flake8]
+ignore = 'E128'
+max-line-length = 100
+exclude = ['venv','test_script.py']
+

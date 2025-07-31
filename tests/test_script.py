@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+import subprocess
+import sys
+
+
+def run_check(description, command, check_output=False):
+    print(f"🔍 Running {description}...")
+
+    try:
+        if check_output:
+            output = subprocess.check_output(
+                command,
+                shell=True,
+                text=True,
+                stderr=subprocess.STDOUT,
+            )
+            print(output)
+        else:
+            subprocess.run(
+                command,
+                shell=True,
+                check=True,
+                stderr=subprocess.STDOUT,
+            )
+        print(f"{description} completed successfully.\n")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Error during {description}:\n{e.output}")
+        sys.exit(1)
+
+
+# Run isort with profile and exclusions
+run_check(
+    "isort (import sorting)",
+    "isort . --profile=black --line-length=72 --skip='venv'",
+    check_output=True,
+)
+# Run black to check formatting
+run_check(
+    "black (formatting)",
+    "black . --line-length=72",
+    check_output=True,
+)
+
+# Run flake8 with exclusions
+run_check(
+    "flake8 (linting)",
+    "flake8 . --max-line-length=100 --ignore=E128 --exclude=venv",
+    check_output=True,
+)
+
+print("✅ All checks passed. Proceeding with commit.")
