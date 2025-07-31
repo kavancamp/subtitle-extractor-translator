@@ -2,10 +2,9 @@
 __pycache__/
 *.py[codz]
 *$py.class
-test_script.py
 # C extensions
 *.so
-
+.pytest_cache/
 # Distribution / packaging
 .Python
 build/
