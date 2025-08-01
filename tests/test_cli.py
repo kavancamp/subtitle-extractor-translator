@@ -54,6 +54,8 @@ def test_transcribe_creates_srt_file(mock_load_model, runner):
             [
                 "transcribe",
                 temp_video.name,
+                "--model",
+                "base",
                 "--language",
                 "en",
                 "--output",
