@@ -1,13 +1,13 @@
 import os
 import sys
 
-from click.testing import CliRunner
-
 sys.path.insert(
     0,
     os.path.abspath(os.path.join(os.path.dirname(__file__), "..")),
 )
-from cli import cli
+from click.testing import CliRunner  # noqa: E402
+
+from cli import cli  # noqa: E402
 
 runner = CliRunner()
 
