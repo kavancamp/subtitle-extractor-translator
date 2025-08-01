@@ -1,4 +1,16 @@
+# import os
+# import subprocess
+# from pathlib import Path
 import click
+import whisper
+
+
+def format_timestamp(seconds: float) -> str:
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = seconds % 60
+    ms = int((s - int(s)) * 1000)
+    return f"{h:02}:{m:02}:{int(s):02},{ms:03}"
 
 
 @click.group()
@@ -24,14 +36,14 @@ def extract(
 ):
     """Extract subtitles from a video file."""
     click.echo(f"Extracting subtitles from {video_path} to {output}")
-    # extract logic here
+    pass
 
 
 # transcribe subcommand
 @cli.command()
 @click.argument(
     "video_path",
-    type=click.Path(exists=False),
+    type=click.Path(exists=True),
 )
 @click.option(
     "--language",
@@ -43,17 +55,39 @@ def extract(
     default="transcription.srt",
     help="output SRT file",
 )
+@click.option(
+    "--model",
+    default="base",
+    help="Whisper model size to use - tiny, base, small, medium, large, turbo",
+)
 def transcribe(
     video_path,
+    model,
     language,
     output,
 ):
     """Transcribe audio from video using Whisper"""
     click.echo(
-        f"Transcribing {video_path} with"
-        " language {language} to {output}"
+        f"Transcribing {video_path} with language {language} to {output}"
     )
-    # run Whisper on the video file’s audio.
+    # load whisper model
+    audio = whisper.load_model(model)
+    # transcribe file - returns a dictionary with segments key
+    script = audio.transcribe(video_path, language=language)
+    # save script to SRT file
+    with open(output, "w", encoding="utf-8") as f:
+        # i = subtitle number
+        # SRT files number each subtitle block starting at 1
+        for i, segment in enumerate(script["segments"], start=1):
+            f.write(f"{i}\n")
+            f.write(
+                f"{format_timestamp(segment['start'])} --> {format_timestamp(segment['end'])}\n"
+            )
+            f.write(f"{segment['text'].strip()}\n\n")
+            print(f"Subtitle {i}: {segment['text'].strip()}")
+    # print completion message
+    click.echo("Transcription complete.")
+    click.echo(f"Subtitles saved to {output}")
 
 
 # translate subcommand
