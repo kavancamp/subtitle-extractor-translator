@@ -34,6 +34,7 @@ run_check(
     "isort . --profile=black --line-length=72 --skip='venv'",
     check_output=True,
 )
+
 # Run black to check formatting
 run_check(
     "black (formatting)",
