@@ -70,7 +70,7 @@ def transcribe(
     output,
 ):
     """Transcribe audio from video using Whisper"""
-    
+
     click.echo(
         f"Transcribing {video_path} with language {language} to {output}"
     )
@@ -116,7 +116,6 @@ def translate(
     output,
 ):
     """Translate an SRT file to a target language."""
-    
 
     click.echo(f"Translating {srt_file} to {target_lang} -> {output}")
     # translation logic
