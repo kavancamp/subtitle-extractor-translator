@@ -20,18 +20,34 @@ def runner():
     return CliRunner()
 
 
-def test_extract_command(runner):
-    result = runner.invoke(
-        cli,
-        [
-            "extract",
-            "sample.mp4",
-            "--output",
-            "out.srt",
-        ],
-    )
-    assert result.exit_code == 0
-    assert "Extracting subtitles" in result.output
+@patch("cli.has_subtitles", return_value=False)
+@patch("cli.whisper.load_model")
+def test_extract_falls_back_to_transcribe(
+    mock_load_model, mock_has_subtitles
+):
+    mock_model = MagicMock()
+    mock_model.transcribe.return_value = {
+        "segments": [
+            {"start": 0, "end": 1, "text": "Fallback transcription"},
+        ]
+    }
+    mock_load_model.return_value = mock_model
+
+    runner = CliRunner()
+    with tempfile.NamedTemporaryFile(suffix=".mp4") as temp_video:
+        output_path = temp_video.name + ".srt"
+        result = runner.invoke(
+            cli,
+            [
+                "extract",
+                temp_video.name,
+                "--output",
+                output_path,
+            ],
+        )
+
+        assert result.exit_code == 0
+        assert "Fallback transcription" in open(output_path).read()
 
 
 # Mock the whisper model loading and transcription
