@@ -7,7 +7,7 @@ skip = ["env", "venv", ".venv", "build", "dist"]
 line-length = 88
 
 [tool.flake8]
-ignore = 'E128'
+ignore = ["E128", "W503"]
 max-line-length = 100
 exclude = ['venv','test_script.py']
 

@@ -3,6 +3,7 @@
 # from pathlib import Path
 import click
 import whisper
+from deep_translator import GoogleTranslator
 
 
 def format_timestamp(seconds: float) -> str:
@@ -36,7 +37,9 @@ def extract(
 ):
     """Extract subtitles from a video file."""
     click.echo(f"Extracting subtitles from {video_path} to {output}")
-    pass
+    click.echo(
+        "python cli.py extract sample.mp4 --output subtitles.srt"
+    )
 
 
 # transcribe subcommand
@@ -67,6 +70,7 @@ def transcribe(
     output,
 ):
     """Transcribe audio from video using Whisper"""
+
     click.echo(
         f"Transcribing {video_path} with language {language} to {output}"
     )
@@ -94,7 +98,7 @@ def transcribe(
 @cli.command()
 @click.argument(
     "srt_file",
-    type=click.Path(exists=False),
+    type=click.Path(exists=True),
 )
 @click.option(
     "--target-lang",
@@ -112,8 +116,25 @@ def translate(
     output,
 ):
     """Translate an SRT file to a target language."""
+
     click.echo(f"Translating {srt_file} to {target_lang} -> {output}")
-    # translation logic here
+    # translation logic
+
+    translator = GoogleTranslator(source="auto", target=target_lang)
+
+    with open(srt_file, "r", encoding="utf-8") as infile, open(
+        output, "w", encoding="utf-8"
+    ) as outfile:
+        for line in infile:
+            if (
+                "-->" in line
+                or line.strip().isdigit()
+                or line.strip() == ""
+            ):
+                outfile.write(line)
+            else:
+                translated = translator.translate(line.strip())
+                outfile.write(translated + "\n")
 
 
 if __name__ == "__main__":

@@ -45,7 +45,7 @@ run_check(
 # Run flake8 with exclusions
 run_check(
     "flake8 (linting)",
-    "flake8 . --max-line-length=100 --ignore=E128 --exclude=venv",
+    "flake8 . --max-line-length=100 --ignore=E128,W503 --exclude=venv",
     check_output=True,
 )
 

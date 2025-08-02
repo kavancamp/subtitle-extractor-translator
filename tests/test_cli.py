@@ -71,17 +71,44 @@ def test_transcribe_creates_srt_file(mock_load_model, runner):
             assert "Testing subtitles" in content
 
 
-def test_translate_command(runner):
-    result = runner.invoke(
-        cli,
-        [
-            "translate",
-            "captions.srt",
-            "--target-lang",
-            "fr",
-            "--output",
-            "fr.srt",
-        ],
-    )
-    assert result.exit_code == 0
-    assert "Translating" in result.output
+@patch("cli.GoogleTranslator.translate")
+def test_translate_srt_file(mock_translate):
+    mock_translate.side_effect = lambda text: f"TRANSLATED: {text}"
+
+    runner = CliRunner()
+    srt_content = """1
+00:00:01,000 --> 00:00:02,000
+Hello
+
+2
+00:00:03,000 --> 00:00:04,000
+How are you?
+"""
+
+    with tempfile.NamedTemporaryFile(
+        "w+", suffix=".srt", delete=False
+    ) as temp_in:
+        temp_in.write(srt_content)
+        temp_in.flush()
+
+        output_path = temp_in.name.replace(".srt", "_fr.srt")
+        result = runner.invoke(
+            cli,
+            [
+                "translate",
+                temp_in.name,
+                "--target-lang",
+                "fr",
+                "--output",
+                output_path,
+            ],
+        )
+
+        assert result.exit_code == 0
+        assert "Translating" in result.output
+        assert os.path.exists(output_path)
+
+        with open(output_path, "r", encoding="utf-8") as f:
+            content = f.read()
+            assert "TRANSLATED: Hello" in content
+            assert "TRANSLATED: How are you?" in content
