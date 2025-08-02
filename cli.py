@@ -1,17 +1,43 @@
-# import os
-# import subprocess
-# from pathlib import Path
+import json
+import subprocess
+
 import click
-import whisper
+import whisper  # noqa: F401
 from deep_translator import GoogleTranslator
 
+from functions.transcribe_video import transcribe_video
 
-def format_timestamp(seconds: float) -> str:
-    h = int(seconds // 3600)
-    m = int((seconds % 3600) // 60)
-    s = seconds % 60
-    ms = int((s - int(s)) * 1000)
-    return f"{h:02}:{m:02}:{int(s):02},{ms:03}"
+
+def has_subtitles(file_path: str) -> bool:
+    # Check if video file has embedded subtitle tracks using ffprobe.
+    try:
+        # Run ffprobe - list all streams
+        result = subprocess.run(
+            [
+                "ffprobe",
+                "-v",
+                "error",
+                "-print_format",
+                "json",
+                "-show_streams",
+                "-select_streams",
+                "s",  # 's' = subtitle
+                file_path,
+            ],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        data = json.loads(result.stdout)
+
+        # Check if any subtitle streams are present
+        return bool(data.get("streams"))
+    except subprocess.CalledProcessError as e:
+        print(f"⚠️ ffprobe error: {e}")
+        return False
+    except json.JSONDecodeError as e:
+        print(f"⚠️ JSON decode error: {e}")
+        return False
 
 
 @click.group()
@@ -24,22 +50,55 @@ def cli():
 @cli.command()
 @click.argument(
     "video_path",
-    type=click.Path(exists=False),
+    type=click.Path(exists=True),
 )
 @click.option(
     "--output",
     default="subtitles.srt",
     help="Output subtitle file name",
 )
-def extract(
-    video_path,
-    output,
-):
-    """Extract subtitles from a video file."""
-    click.echo(f"Extracting subtitles from {video_path} to {output}")
+@click.option(
+    "--language",
+    default="en",
+    help="Language for fallback transcription",
+)
+@click.option(
+    "--model", default="base", help="Whisper model size to use"
+)
+def extract(video_path, output, language, model):
+    """Extract embedded subtitles, or fallback to Whisper transcription."""
+    click.echo(f"🎬 Extracting subtitles from {video_path}...")
+
+    if has_subtitles(video_path):
+        click.echo(
+            "📺 Embedded subtitles found. Extracting with ffmpeg..."
+        )
+        try:
+            subprocess.run(
+                [
+                    "ffmpeg",
+                    "-y",
+                    "-i",
+                    video_path,
+                    "-map",
+                    "0:s:0",
+                    output,
+                ],
+                check=True,
+            )
+            click.echo(f"✅ Subtitles extracted to {output}")
+            return
+        except subprocess.CalledProcessError as e:
+            click.echo(
+                f"⚠️ Subtitle extraction failed. Falling back to transcription...{e}"
+            )
+
     click.echo(
-        "python cli.py extract sample.mp4 --output subtitles.srt"
+        "⚠️ No embedded subtitles found. Using Whisper for transcription."
     )
+    transcribe_video(video_path, model, language, output)
+    click.echo("✅ Fallback transcription complete.")
+    click.echo(f"Subtitles saved to {output} 📝")
 
 
 # transcribe subcommand
@@ -74,24 +133,13 @@ def transcribe(
     click.echo(
         f"Transcribing {video_path} with language {language} to {output}"
     )
-    # load whisper model
-    audio = whisper.load_model(model)
-    # transcribe file - returns a dictionary with segments key
-    script = audio.transcribe(video_path, language=language)
-    # save script to SRT file
-    with open(output, "w", encoding="utf-8") as f:
-        # i = subtitle number
-        # SRT files number each subtitle block starting at 1
-        for i, segment in enumerate(script["segments"], start=1):
-            f.write(f"{i}\n")
-            f.write(
-                f"{format_timestamp(segment['start'])} --> {format_timestamp(segment['end'])}\n"
-            )
-            f.write(f"{segment['text'].strip()}\n\n")
-            print(f"Subtitle {i}: {segment['text'].strip()}")
-    # print completion message
+    click.echo(
+        f"Transcribing {video_path} with language {language} to {output}"
+    )
+    transcribe_video(video_path, model, language, output)
+
     click.echo("Transcription complete.")
-    click.echo(f"Subtitles saved to {output}")
+    click.echo(f"Subtitles saved to {output} 📝")
 
 
 # translate subcommand
