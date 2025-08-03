@@ -18,6 +18,7 @@ Have you ever found a fascinating foreign-language video with no subtitles—or 
 I built this project to create a unified, developer-friendly tool that handles all three steps—extract, transcribe, and translate—with a single command-line interface. Whether you're archiving media, studying languages, or supporting accessibility, this tool saves you time by doing the hard parts automatically. And because it uses open-source tools like ffmpeg, OpenAI’s Whisper, and deep-translator under the hood, it remains powerful and adaptable without vendor lock-in.
 
 Now, I can turn any video into a clean .srt subtitle file in my preferred language in seconds—and so can you.
+
 ## 🛠 Installation
 
 Clone the repository and install dependencies in a virtual environment:
@@ -45,6 +46,7 @@ black
 flake8
 isort
 
+
 ## 📦 CLI Usage
 Transcribe audio from a video file to .srt subtitles:
 ```bash
@@ -70,6 +72,8 @@ small
 medium
 large
 turbo (OpenAI API required)
+
+## 🤝 Contributing
 
 ### TODO:
 - Store metadata/transcriptions in SQL
