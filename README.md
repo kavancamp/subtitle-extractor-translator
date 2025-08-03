@@ -2,9 +2,8 @@
 
 # 🎬 Subtitle Extractor & Translator CLI
 
-A powerful command-line tool to extract, transcribe, and translate subtitles from video files using `ffmpeg`, OpenAI's Whisper, and `deep-translator`.
+### A powerful command-line tool to extract, transcribe, and translate subtitles from video files using `ffmpeg`, OpenAI's Whisper, and `deep-translator`.
 
----
 
 ## 🚀 Features
 
@@ -13,8 +12,12 @@ A powerful command-line tool to extract, transcribe, and translate subtitles fro
 - 🌍 Translate subtitles to over 100+ languages using Google Translate
 - 📁 Outputs standard `.srt` files for use in media players or editors
 
----
+## ⁉️ Why? 
+Have you ever found a fascinating foreign-language video with no subtitles—or worse, with subtitles you can’t translate or reuse? As a software engineer and content consumer, I got tired of bouncing between tools that only half-solved the problem: one to rip subtitles, another to transcribe audio, and a third to translate the results. They were clunky, inconsistent, or required complex workflows.
 
+I built this project to create a unified, developer-friendly tool that handles all three steps—extract, transcribe, and translate—with a single command-line interface. Whether you're archiving media, studying languages, or supporting accessibility, this tool saves you time by doing the hard parts automatically. And because it uses open-source tools like ffmpeg, OpenAI’s Whisper, and deep-translator under the hood, it remains powerful and adaptable without vendor lock-in.
+
+Now, I can turn any video into a clean .srt subtitle file in my preferred language in seconds—and so can you.
 ## 🛠 Installation
 
 Clone the repository and install dependencies in a virtual environment:
