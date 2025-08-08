@@ -1,0 +1,132 @@
+# Korean translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-07 12:34-0500\n"
+"PO-Revision-Date: 2025-08-07 12:34-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: cli.py:63
+msgid ""
+"currently available for the base cli language: 'bn', 'de', 'es', 'fr', "
+"'haw', 'hi', 'ko','ru', 'ur', 'zh'. Defaults to English."
+msgstr ""
+"현재 'Bn', 'de', 'es', 'fr', 'haw', 'hi', 'ko', 'ru', 'ur', 'zh'에 대해 현재 사용 "
+"가능합니다. 기본값으로 영어로."
+
+#: cli.py:70
+msgid ""
+"\n"
+"**Welcome to Subtitle Extractor & Translator CLI**\n"
+msgstr "** 자막 추출기 및 번역기 CLI에 오신 것을 환영합니다 **"
+
+#: cli.py:79
+msgid "- Transcribe subtitles from video or audio"
+msgstr "- 비디오 또는 오디오에서 자막 전사"
+
+#: cli.py:88
+msgid "Language model to use for transcription (e.g., bn, en, es,)"
+msgstr "전사에 사용할 언어 모델 (예 : BN, EN, ES,)"
+
+#: cli.py:94
+msgid "output SRT file"
+msgstr "출력 SRT 파일"
+
+#: cli.py:100
+msgid "Whisper model size to use - tiny, base, small, medium, large, turbo"
+msgstr "사용하는 속삭임 모델 크기 - 작은,베이스, 소규모, 중간, 대형, 터보"
+
+#: cli.py:113
+#, python-brace-format
+msgid "Transcribing {video_path} with language {language} to {output}"
+msgstr "{video_path} {video_path}를 언어 {ancegry}로 {output}로 전사합니다."
+
+#: cli.py:120
+msgid "Transcription complete."
+msgstr "전사 완료."
+
+#: cli.py:122 cli.py:194
+#, python-brace-format
+msgid "Subtitles saved to {output} 📝"
+msgstr "자막은 {output} 📝에 저장되었습니다"
+
+#: cli.py:129
+msgid "- Extract subtitles from video, fallback to transcribe if not"
+msgstr "- 비디오에서 자막 추출, 그렇지 않은 경우 전사하기 위해 폴백"
+
+#: cli.py:139
+msgid "Output subtitle file name"
+msgstr "출력 자막 파일 이름"
+
+#: cli.py:144
+msgid "Language for fallback transcription"
+msgstr "폴백 전사 언어"
+
+#: cli.py:147
+msgid "Whisper model size to use"
+msgstr "사용할 모델 크기"
+
+#: cli.py:152
+#, python-brace-format
+msgid "🎬 Extracting subtitles from {video_path}..."
+msgstr "🎬 {video_path}에서 자막 추출 ... ..."
+
+#: cli.py:158
+msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
+msgstr "📺 삽입 된 자막이 발견되었습니다. ffmpeg로 추출 ..."
+
+#: cli.py:174
+#, python-brace-format
+msgid "✅ Subtitles extracted to {output}"
+msgstr "✅ {output}에 추출 된 자막이 추출되었습니다."
+
+#: cli.py:182
+#, python-brace-format
+msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
+msgstr "⚠️ 자막 추출이 실패했습니다. 전사로 돌아 가기 ... {err}"
+
+#: cli.py:188
+msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
+msgstr "⚠️ 내장 된 자막이 발견되지 않았습니다. 전사를 위해 속삭임 사용."
+
+#: cli.py:192
+msgid "✅ Fallback transcription complete."
+msgstr "율 폴백 전사가 완료됩니다."
+
+#: cli.py:199
+msgid "- Translate subtitles and save to .srt"
+msgstr "- 자막을 번역하고 .srt로 저장하십시오"
+
+#: cli.py:207
+msgid "Target language to translate to (e.g., es, fr, de)"
+msgstr "번역 할 언어 (예 : Es, Fr, De)"
+
+#: cli.py:212
+msgid "Translated subtitle output file"
+msgstr "번역 된 자막 출력 파일"
+
+#: cli.py:222
+#, python-brace-format
+msgid "Translating {srt_file} to {target_lang} -> {output}"
+msgstr "{srt_file}을 {target_lang} -> {output}로 변환합니다."
+
+#: functions/has_subtitles.py:33
+#, python-brace-format
+msgid "⚠️ ffprobe error: {e}"
+msgstr "⚠️ ffprobe 오류 : {e}"
+
+#: functions/has_subtitles.py:36
+#, python-brace-format
+msgid "⚠️ JSON decode error: {e}"
+msgstr "⚠️ JSON DECODE 오류 : {e}"
