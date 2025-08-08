@@ -1,0 +1,141 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-07 12:34-0500\n"
+"PO-Revision-Date: 2025-08-07 12:34-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: cli.py:63
+msgid ""
+"currently available for the base cli language: 'bn', 'de', 'es', 'fr', "
+"'haw', 'hi', 'ko','ru', 'ur', 'zh'. Defaults to English."
+msgstr ""
+"Actuellement disponible pour la langue CLI de base: «bn», «de», «es», «fr», "
+"«haw», «hi», «ko», «ru», «ur», «zh». Par défaut en anglais."
+
+#: cli.py:70
+msgid ""
+"\n"
+"**Welcome to Subtitle Extractor & Translator CLI**\n"
+msgstr "** Bienvenue à l'extracteur et traducteur de sous-titre CLI **"
+
+#: cli.py:79
+msgid "- Transcribe subtitles from video or audio"
+msgstr "- Transcrire les sous-titres de la vidéo ou de l'audio"
+
+#: cli.py:88
+msgid "Language model to use for transcription (e.g., bn, en, es,)"
+msgstr ""
+"Modèle linguistique à utiliser pour la transcription (par exemple, BN, EN, "
+"ES,)"
+
+#: cli.py:94
+msgid "output SRT file"
+msgstr "Sortie du fichier SRT"
+
+#: cli.py:100
+msgid "Whisper model size to use - tiny, base, small, medium, large, turbo"
+msgstr ""
+"Taille du modèle chuchotement à utiliser - minuscule, base, petit, moyen, "
+"grand, turbo"
+
+#: cli.py:113
+#, python-brace-format
+msgid "Transcribing {video_path} with language {language} to {output}"
+msgstr "Transcription {video_path} avec le langage {langage} à {output}"
+
+#: cli.py:120
+msgid "Transcription complete."
+msgstr "Transcription complète."
+
+#: cli.py:122 cli.py:194
+#, python-brace-format
+msgid "Subtitles saved to {output} 📝"
+msgstr "Sous-titres enregistrés sur {output} 📝"
+
+#: cli.py:129
+msgid "- Extract subtitles from video, fallback to transcribe if not"
+msgstr ""
+"- Extraire les sous-titres de la vidéo, se repliant pour transcrire sinon"
+
+#: cli.py:139
+msgid "Output subtitle file name"
+msgstr "Nom du fichier de sous-titres de sortie"
+
+#: cli.py:144
+msgid "Language for fallback transcription"
+msgstr "Langue pour la transcription de secours"
+
+#: cli.py:147
+msgid "Whisper model size to use"
+msgstr "Taille du modèle chuchotement à utiliser"
+
+#: cli.py:152
+#, python-brace-format
+msgid "🎬 Extracting subtitles from {video_path}..."
+msgstr "🎬 Extraction de sous-titres de {video_path} ..."
+
+#: cli.py:158
+msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
+msgstr "📺 Sous-titres intégrés trouvés. Extraction avec FFMPEG ..."
+
+#: cli.py:174
+#, python-brace-format
+msgid "✅ Subtitles extracted to {output}"
+msgstr "✅ Sous-titres extraits à {Output}"
+
+#: cli.py:182
+#, python-brace-format
+msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
+msgstr ""
+"⚠️ L'extraction des sous-titres a échoué. Retomber à la transcription ... "
+"{err}"
+
+#: cli.py:188
+msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
+msgstr ""
+"⚠️ Aucun sous-titres intégrés trouvés. Utilisation de chuchotement pour la "
+"transcription."
+
+#: cli.py:192
+msgid "✅ Fallback transcription complete."
+msgstr "✅ Transcription de secours complète."
+
+#: cli.py:199
+msgid "- Translate subtitles and save to .srt"
+msgstr "- traduire les sous-titres et enregistrer sur .srt"
+
+#: cli.py:207
+msgid "Target language to translate to (e.g., es, fr, de)"
+msgstr "Langue cible pour traduire en (par exemple, ES, FR, DE)"
+
+#: cli.py:212
+msgid "Translated subtitle output file"
+msgstr "Fichier de sortie de sous-titre traduit"
+
+#: cli.py:222
+#, python-brace-format
+msgid "Translating {srt_file} to {target_lang} -> {output}"
+msgstr "Traduction {SRT_FILE} en {Target_lang} -> {Output}"
+
+#: functions/has_subtitles.py:33
+#, python-brace-format
+msgid "⚠️ ffprobe error: {e}"
+msgstr "⚠️ FFPROBE Erreur: {e}"
+
+#: functions/has_subtitles.py:36
+#, python-brace-format
+msgid "⚠️ JSON decode error: {e}"
+msgstr "⚠️ JSON Decode Erreur: {e}"
