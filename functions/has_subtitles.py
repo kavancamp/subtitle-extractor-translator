@@ -1,11 +1,11 @@
+# functions/has_subtitles.py
 # -*- coding: utf-8 -*-
 import gettext
 import json
 import subprocess
 
 
-def has_subtitles(file_path: str) -> bool:
-    """Return True if the video contains any embedded subtitle streams."""
+def has_subtitles(ctx, file_path: str) -> bool:
     _ = gettext.gettext
     try:
         result = subprocess.run(
@@ -27,8 +27,8 @@ def has_subtitles(file_path: str) -> bool:
         data = json.loads(result.stdout)
         return bool(data.get("streams"))
     except subprocess.CalledProcessError as e:
-        print(_(f"⚠️ ffprobe error: {e}"))
+        print(_("⚠️ ffprobe error: {e}").format(e=e))
         return False
     except json.JSONDecodeError as e:
-        print(_(f"⚠️ JSON decode error: {e}"))
+        print(_("⚠️ JSON decode error: {e}").format(e=e))
         return False
