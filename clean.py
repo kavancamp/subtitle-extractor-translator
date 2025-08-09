@@ -38,7 +38,7 @@ run_check(
 # Run black to check formatting
 run_check(
     "black (formatting)",
-    "black . --line-length=72",
+    "black . --line-length=72 --extend-exclude=tests ",
     check_output=True,
 )
 
@@ -49,6 +49,6 @@ run_check(
     check_output=True,
 )
 
-run_check("pytest (testing)", "pytest -q", check_output=True)
+run_check("pytest (testing)", "pytest", check_output=True)
 
 print("✅ All checks passed. Proceed with commit.")
