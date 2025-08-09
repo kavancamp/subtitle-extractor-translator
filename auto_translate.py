@@ -23,18 +23,45 @@ def auto_translate(source, langs):
     """Auto-translates .po files and compiles them into .mo files."""
     base_path = os.path.join(os.path.dirname(__file__), "locales")
     langs = [lang.strip() for lang in langs.split(",")]
+    lc = "LC_MESSAGES"
+    try:
+        subprocess.run(
+            [
+                "xgettext",
+                "--from-code=UTF-8",
+                "--language=Python",
+                "--keyword=_",
+                "-o",
+                os.path.join(base_path, "messages.pot"),
+                "cli.py",
+                os.path.join("functions/validators.py"),
+                os.path.join("functions/has_subtitles.py"),
+            ]
+        )
+    except Exception as e:
+        click.echo(f"❌ Unexpected error: {e}")
 
     for lang in langs:
+        try:
+            subprocess.run(
+                [
+                    "cp",
+                    os.path.join(base_path, "messages.pot"),
+                    os.path.join(base_path, lang, lc, "messages.po"),
+                ]
+            )
+        except Exception as e:
+            click.echo(f"❌ Unexpected error: {e}")
+            continue
+
         click.echo(f"🔁 Translating to: {lang}")
-        lang_dir = os.path.join(base_path, lang)
+        lang_dir = os.path.join(base_path, lang, lc)
         os.makedirs(lang_dir, exist_ok=True)
         po_path = os.path.join(lang_dir, "messages.po")
 
         if not os.path.exists(po_path):
             try:
-                click.echo(
-                    f"⚠️ Missing file, creating new file: {po_path}"
-                )
+                click.echo(f"⚠️ Missing file, creating new: {po_path}")
                 subprocess.run(
                     [
                         "msginit",
@@ -71,7 +98,7 @@ def auto_translate(source, langs):
         click.echo(f"✅ Saved updated translations to {po_path}")
 
         # Generate .mo file
-        mo_path = os.path.join(base_path, lang, "messages.mo")
+        mo_path = os.path.join(base_path, lang, lc, "messages.mo")
         po.save_as_mofile(mo_path)
         click.echo(f"📦 Compiled .mo file saved to {mo_path}")
 
