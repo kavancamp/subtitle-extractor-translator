@@ -325,20 +325,24 @@ How are you?
             assert "TRANSLATED: Hello" in content
             assert "TRANSLATED: How are you?" in content
 
+
 def test_transcribe_nonexistent_file(runner):
     result = runner.invoke(cli, ["transcribe", "nonexistent.mp4"])
     assert result.exit_code != 0
     assert "Invalid value for 'VIDEO_PATH'" in result.output
+
 
 def test_translate_missing_required_args(runner):
     result = runner.invoke(cli, ["translate"])
     assert result.exit_code != 0
     assert "Missing argument 'SRT_FILE'" in result.output
 
+
 def test_cli_accepts_lang_option(runner):
     result = runner.invoke(cli, ["--lang", "fr"])
     assert result.exit_code == 0
     assert "Welcome to Subtitle Extractor" in result.output
+
 
 def test_transcribe_rejects_invalid_extension(runner, tmp_path):
     bad = tmp_path / "not_video.txt"
@@ -347,18 +351,6 @@ def test_transcribe_rejects_invalid_extension(runner, tmp_path):
     assert res.exit_code != 0
     assert "Invalid video format" in res.output
 
-@patch("cli.subprocess.run")
-@patch("cli.has_subtitles", return_value=True)
-@patch("cli.whisper.load_model")  # should not be called
-def test_extract_prefers_ffmpeg_when_subs_present(
-    mock_whisper, mock_has_subs, mock_run, runner, tmp_path
-):
-    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00\x00\x00\x20ftyp")
-    out = tmp_path / "out.srt"
-    res = runner.invoke(cli, ["extract", str(video), "--output", str(out)])
-    assert res.exit_code == 0
-    mock_run.assert_called_once()             # ffmpeg invoked
-    assert not mock_whisper.called            # Whisper not used
 
 @patch("cli.subprocess.run")
 @patch("cli.has_subtitles", return_value=True)
@@ -366,30 +358,64 @@ def test_extract_prefers_ffmpeg_when_subs_present(
 def test_extract_prefers_ffmpeg_when_subs_present(
     mock_whisper, mock_has_subs, mock_run, runner, tmp_path
 ):
-    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00\x00\x00\x20ftyp")
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"\x00\x00\x00\x20ftyp")
     out = tmp_path / "out.srt"
-    res = runner.invoke(cli, ["extract", str(video), "--output", str(out)])
+    res = runner.invoke(
+        cli, ["extract", str(video), "--output", str(out)]
+    )
     assert res.exit_code == 0
-    mock_run.assert_called_once()             # ffmpeg invoked
-    assert not mock_whisper.called            # Whisper not used
+    mock_run.assert_called_once()  # ffmpeg invoked
+    assert not mock_whisper.called  # Whisper not used
+
+
+@patch("cli.subprocess.run")
+@patch("cli.has_subtitles", return_value=True)
+@patch("cli.whisper.load_model")  # should not be called
+def test_extract_prefers_ffmpeg_when_subs_present(
+    mock_whisper, mock_has_subs, mock_run, runner, tmp_path
+):
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"\x00\x00\x00\x20ftyp")
+    out = tmp_path / "out.srt"
+    res = runner.invoke(
+        cli, ["extract", str(video), "--output", str(out)]
+    )
+    assert res.exit_code == 0
+    mock_run.assert_called_once()  # ffmpeg invoked
+    assert not mock_whisper.called  # Whisper not used
+
 
 @patch("cli.whisper.load_model")
-@patch("cli.subprocess.run", side_effect=subprocess.CalledProcessError(1, "ffmpeg"))
+@patch(
+    "cli.subprocess.run",
+    side_effect=subprocess.CalledProcessError(1, "ffmpeg"),
+)
 @patch("cli.has_subtitles", return_value=True)
-def test_extract_fallback_calls_whisper(mock_has, mock_run, mock_load, runner, tmp_path):
+def test_extract_fallback_calls_whisper(
+    mock_has, mock_run, mock_load, runner, tmp_path
+):
     mock_model = MagicMock()
-    mock_model.transcribe.return_value = {"segments": [{"start": 0, "end": 1, "text": "fallback"}]}
+    mock_model.transcribe.return_value = {
+        "segments": [{"start": 0, "end": 1, "text": "fallback"}]
+    }
     mock_load.return_value = mock_model
 
-    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00\x00\x00\x20ftyp")
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"\x00\x00\x00\x20ftyp")
     out = tmp_path / "out.srt"
-    res = runner.invoke(cli, ["extract", str(video), "--output", str(out)])
+    res = runner.invoke(
+        cli, ["extract", str(video), "--output", str(out)]
+    )
     assert res.exit_code == 0
     assert out.exists()
     assert "fallback" in out.read_text()
 
+
 @patch("cli.whisper.load_model")
-def test_transcribe_writes_srt_numbering_and_timestamps(mock_load, runner, tmp_path):
+def test_transcribe_writes_srt_numbering_and_timestamps(
+    mock_load, runner, tmp_path
+):
     mock_model = MagicMock()
     mock_model.transcribe.return_value = {
         "segments": [
@@ -399,9 +425,12 @@ def test_transcribe_writes_srt_numbering_and_timestamps(mock_load, runner, tmp_p
     }
     mock_load.return_value = mock_model
 
-    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00\x00\x00\x20ftyp")
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"\x00\x00\x00\x20ftyp")
     out = tmp_path / "o.srt"
-    res = runner.invoke(cli, ["transcribe", str(video), "--output", str(out)])
+    res = runner.invoke(
+        cli, ["transcribe", str(video), "--output", str(out)]
+    )
     assert res.exit_code == 0
     data = out.read_text()
     assert "1\n" in data and "2\n" in data
@@ -409,11 +438,17 @@ def test_transcribe_writes_srt_numbering_and_timestamps(mock_load, runner, tmp_p
     assert "00:00:01,250 --> 00:00:02,500" in data
     assert "Hello" in data and "World" in data
 
+
 from unittest.mock import patch
 
+
 @patch("cli.GoogleTranslator.translate")
-def test_translate_preserves_srt_structure(mock_translate, runner, tmp_path):
-    mock_translate.side_effect = lambda s: f"X-{s}"  # mark translated text
+def test_translate_preserves_srt_structure(
+    mock_translate, runner, tmp_path
+):
+    mock_translate.side_effect = (
+        lambda s: f"X-{s}"
+    )  # mark translated text
     srt = tmp_path / "in.srt"
     srt.write_text(
         "1\n00:00:01,000 --> 00:00:02,000\nHello\n\n"
@@ -421,7 +456,15 @@ def test_translate_preserves_srt_structure(mock_translate, runner, tmp_path):
     )
     out = tmp_path / "out.srt"
     res = runner.invoke(
-        cli, ["translate", str(srt), "--target-lang", "fr", "--output", str(out)]
+        cli,
+        [
+            "translate",
+            str(srt),
+            "--target-lang",
+            "fr",
+            "--output",
+            str(out),
+        ],
     )
     assert res.exit_code == 0
     data = out.read_text()
@@ -429,20 +472,44 @@ def test_translate_preserves_srt_structure(mock_translate, runner, tmp_path):
     assert "00:00:01,000 --> 00:00:02,000" in data
     assert "X-Hello" in data and "X-World" in data
 
-@patch("cli.GoogleTranslator.translate", side_effect=Exception("bad lang"))
-def test_translate_handles_translator_failure(mock_translate, runner, tmp_path):
+
+@patch(
+    "cli.GoogleTranslator.translate", side_effect=Exception("bad lang")
+)
+def test_translate_handles_translator_failure(
+    mock_translate, runner, tmp_path
+):
     srt = tmp_path / "in.srt"
     srt.write_text("1\n00:00:01,000 --> 00:00:02,000\nHello\n")
     out = tmp_path / "out.srt"
-    res = runner.invoke(cli, ["translate", str(srt), "--target-lang", "xx", "--output", str(out)])
-    assert res.exit_code != 0  # or check for ClickException message if you raise one
+    res = runner.invoke(
+        cli,
+        [
+            "translate",
+            str(srt),
+            "--target-lang",
+            "xx",
+            "--output",
+            str(out),
+        ],
+    )
+    assert (
+        res.exit_code != 0
+    )  # or check for ClickException message if you raise one
 
-@patch("cli.whisper.load_model", side_effect=RuntimeError("GPU missing"))
+
+@patch(
+    "cli.whisper.load_model", side_effect=RuntimeError("GPU missing")
+)
 def test_transcribe_handles_whisper_failure(runner, tmp_path):
-    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00\x00\x00\x20ftyp")
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"\x00\x00\x00\x20ftyp")
     out = tmp_path / "o.srt"
-    res = runner.invoke(cli, ["transcribe", str(video), "--output", str(out)])
+    res = runner.invoke(
+        cli, ["transcribe", str(video), "--output", str(out)]
+    )
     assert res.exit_code != 0
+
 
 def test_extract_invalid_extension_blocks_early(runner, tmp_path):
     bad = tmp_path / "clip.doc"
@@ -451,10 +518,24 @@ def test_extract_invalid_extension_blocks_early(runner, tmp_path):
     assert res.exit_code != 0
     assert "Invalid video format" in res.output
 
+
 @patch("cli.whisper.load_model")
 def test_transcribe_passes_model_name(mock_load, runner, tmp_path):
-    mock_load.return_value = MagicMock(transcribe=lambda *a, **k: {"segments":[]})
-    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00\x00\x00\x20ftyp")
+    mock_load.return_value = MagicMock(
+        transcribe=lambda *a, **k: {"segments": []}
+    )
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"\x00\x00\x00\x20ftyp")
     out = tmp_path / "o.srt"
-    runner.invoke(cli, ["transcribe", str(video), "--model", "small", "--output", str(out)])
+    runner.invoke(
+        cli,
+        [
+            "transcribe",
+            str(video),
+            "--model",
+            "small",
+            "--output",
+            str(out),
+        ],
+    )
     mock_load.assert_called_with("small")
