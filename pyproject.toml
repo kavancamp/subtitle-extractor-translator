@@ -1,13 +1,14 @@
 [tool.isort]
 profile = "black" 
 line_length = 88
-skip = ["env", "venv", ".venv", "build", "dist"]
+skip = ["env", "venv", ".venv", "build", "dist", "locales"]
 
 [tool.black]
 line-length = 88
 
+
 [tool.flake8]
 ignore = ["E128", "W503"]
 max-line-length = 100
-exclude = ['venv','test_script.py']
+exclude = ["venv", ".tests", "locales"]
 

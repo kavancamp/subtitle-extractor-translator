@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-09 11:30-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cli.py:101
+#, python-brace-format
+msgid "❌ Failed to write transcription to {output}: {e}"
+msgstr "❌ Ua tsis tiav los sau cov ntawv thov rau {output}: {e}"
+
+#: cli.py:113
+msgid ""
+"Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
+"to English."
+msgstr ""
+"Interface lus (BN, de, es, es, FI, HMON, KO, Ru, koj). Ua txhaum rau Askiv."
+
+#: cli.py:139 cli.py:145
+msgid ""
+"\n"
+"**Welcome to Subtitle Extractor & Translator CLI**\n"
+msgstr "** Txais tos rau subtitle extractle extractor & transnel cli **"
+
+#: cli.py:149
+msgid "- Transcribe subtitles from video or audio"
+msgstr "- Hloov cov subtitles los ntawm cov vis dis aus lossis suab"
+
+#: cli.py:160
+msgid "Language model for transcription (e.g., en, es, zh)."
+msgstr "Qauv lus rau kev sau ntawv (piv txwv li, en, es, zh)."
+
+#: cli.py:163
+msgid "Output SRT file"
+msgstr "Tso zis SRT cov ntaub ntawv"
+
+#: cli.py:169
+msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
+msgstr "Ntxhi Modle Loj (me me, puag, me me, nruab nrab, loj, turbo)"
+
+#: cli.py:183
+#, python-brace-format
+msgid "Transcribing {video_path} with language {language} to {output}"
+msgstr "Transcribing {video_pha} nrog lus {lus} rau {tso zis}"
+
+#: cli.py:192
+msgid "Transcription complete."
+msgstr "Kev sib sau ua ke tiav."
+
+#: cli.py:194 cli.py:279
+#, python-brace-format
+msgid "Subtitles saved to {output} 📝"
+msgstr "Subtitles cawm rau {tso zis} 📝"
+
+#: cli.py:199
+msgid "- Extract subtitles from video; fallback to transcribed"
+msgstr ""
+"- extract subtitles los ntawm cov yeeb yaj kiab; Fallback mus rau "
+"transcribed"
+
+#: cli.py:211
+msgid "Output subtitle file name"
+msgstr "Tso zis Subtitle cov ntaub ntawv npe"
+
+#: cli.py:216
+msgid "Language for fallback transcription"
+msgstr "Lus rau Fallback Kev Sau Ntawv"
+
+#: cli.py:219
+msgid "Whisper model size to use"
+msgstr "Ntxhi qauv loj siv"
+
+#: cli.py:231
+#, python-brace-format
+msgid "🎬 Extracting subtitles from {video_path}..."
+msgstr "🎬 Muab rho cov ntawv hauv qab ntawm {video_pha} ..."
+
+#: cli.py:238
+msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
+msgstr "Embedded subtitles pom. Muab rho tawm nrog ffmpeg ..."
+
+#: cli.py:256
+#, python-brace-format
+msgid "✅ Subtitles extracted to {output}"
+msgstr "✅ Subitles rho tawm rau {tso zis}"
+
+#: cli.py:264
+#, python-brace-format
+msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
+msgstr "⚠️ Subtitle rho tawm tsis tau. Poob rov qab rau kev sau ... {err}"
+
+#: cli.py:270
+msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
+msgstr "⚠️ tsis muaj cov subtitles pom. Siv lus ntxhi rau kev muab khoom."
+
+#: cli.py:277
+msgid "✅ Fallback transcription complete."
+msgstr "✅ Lub neej ua tiav tiav."
+
+#: cli.py:283
+msgid "- Translate subtitles and save to .srt"
+msgstr "- Txhais cov subtitles thiab txuag rau .srt"
+
+#: cli.py:293
+msgid "Target language (e.g., es, fr, de)"
+msgstr "Hom lus (piv txwv li (piv txwv li, es, fr, de)"
+
+#: cli.py:298
+msgid "Translated subtitle output file"
+msgstr "Txhais cov ntawv sau cov ntawv sau tseg"
+
+#: cli.py:306
+#, python-brace-format
+msgid "Translating {srt_file} to {target_lang} -> {output}"
+msgstr "Txhais {srt_file} rau {hom phiaj_lang} -> {tso zis}"
+
+#: functions/validators.py:23
+msgid ""
+"Invalid video format: '{ext}'. Must be one of: {', "
+"'.join(sorted(VALID_VIDEO_EXTENSIONS))}"
+msgstr ""
+"Daim video tsis raug: '{txuas}'. Yuav tsum yog ib qho ntawm: {',' .join "
+"(txheeb (siv tau_video_extensions))}"
+
+#: functions/has_subtitles.py:30
+#, python-brace-format
+msgid "⚠️ ffprobe error: {e}"
+msgstr "⚠️ FFProbe Yuam Kev: {e}"
+
+#: functions/has_subtitles.py:33
+#, python-brace-format
+msgid "⚠️ JSON decode error: {e}"
+msgstr "⚠️ Json Decde Yuam Kev: {e}"

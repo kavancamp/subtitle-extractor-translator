@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-09 11:30-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cli.py:101
+#, python-brace-format
+msgid "❌ Failed to write transcription to {output}: {e}"
+msgstr "❌ Échec de l'écriture de la transcription à {Output}: {e}"
+
+#: cli.py:113
+msgid ""
+"Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
+"to English."
+msgstr ""
+"Langue d'interface (BN, DE, EN, ES, FR, HAW, HI, HMN, KO, RU, UR). Par "
+"défaut en anglais."
+
+#: cli.py:139 cli.py:145
+msgid ""
+"\n"
+"**Welcome to Subtitle Extractor & Translator CLI**\n"
+msgstr "** Bienvenue à l'extracteur et traducteur de sous-titre CLI **"
+
+#: cli.py:149
+msgid "- Transcribe subtitles from video or audio"
+msgstr "- Transcrire les sous-titres de la vidéo ou de l'audio"
+
+#: cli.py:160
+msgid "Language model for transcription (e.g., en, es, zh)."
+msgstr "Modèle linguistique pour la transcription (par exemple, EN, ES, ZH)."
+
+#: cli.py:163
+msgid "Output SRT file"
+msgstr "Sortie du fichier SRT"
+
+#: cli.py:169
+msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
+msgstr ""
+"Taille du modèle chuchotement (minuscule, base, petit, moyen, grand, turbo)"
+
+#: cli.py:183
+#, python-brace-format
+msgid "Transcribing {video_path} with language {language} to {output}"
+msgstr "Transcription {video_path} avec le langage {langage} à {output}"
+
+#: cli.py:192
+msgid "Transcription complete."
+msgstr "Transcription complète."
+
+#: cli.py:194 cli.py:279
+#, python-brace-format
+msgid "Subtitles saved to {output} 📝"
+msgstr "Sous-titres enregistrés sur {output} 📝"
+
+#: cli.py:199
+msgid "- Extract subtitles from video; fallback to transcribed"
+msgstr "- Extraire sous-titres de la vidéo; Fallback à transcrit"
+
+#: cli.py:211
+msgid "Output subtitle file name"
+msgstr "Nom du fichier de sous-titres de sortie"
+
+#: cli.py:216
+msgid "Language for fallback transcription"
+msgstr "Langue pour la transcription de secours"
+
+#: cli.py:219
+msgid "Whisper model size to use"
+msgstr "Taille du modèle chuchotement à utiliser"
+
+#: cli.py:231
+#, python-brace-format
+msgid "🎬 Extracting subtitles from {video_path}..."
+msgstr "🎬 Extraction de sous-titres de {video_path} ..."
+
+#: cli.py:238
+msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
+msgstr "📺 Sous-titres intégrés trouvés. Extraction avec FFMPEG ..."
+
+#: cli.py:256
+#, python-brace-format
+msgid "✅ Subtitles extracted to {output}"
+msgstr "✅ Sous-titres extraits à {Output}"
+
+#: cli.py:264
+#, python-brace-format
+msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
+msgstr ""
+"⚠️ L'extraction des sous-titres a échoué. Retomber à la transcription ... "
+"{err}"
+
+#: cli.py:270
+msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
+msgstr ""
+"⚠️ Aucun sous-titres intégrés trouvés. Utilisation de chuchotement pour la "
+"transcription."
+
+#: cli.py:277
+msgid "✅ Fallback transcription complete."
+msgstr "✅ Transcription de secours complète."
+
+#: cli.py:283
+msgid "- Translate subtitles and save to .srt"
+msgstr "- traduire les sous-titres et enregistrer sur .srt"
+
+#: cli.py:293
+msgid "Target language (e.g., es, fr, de)"
+msgstr "Langue cible (par exemple, ES, FR, DE)"
+
+#: cli.py:298
+msgid "Translated subtitle output file"
+msgstr "Fichier de sortie de sous-titre traduit"
+
+#: cli.py:306
+#, python-brace-format
+msgid "Translating {srt_file} to {target_lang} -> {output}"
+msgstr "Traduction {SRT_FILE} en {Target_lang} -> {Output}"
+
+#: functions/validators.py:23
+msgid ""
+"Invalid video format: '{ext}'. Must be one of: {', "
+"'.join(sorted(VALID_VIDEO_EXTENSIONS))}"
+msgstr ""
+"Format vidéo non valide: '{ext}'. Doit être l'un de: {',' .join (trié "
+"(valid_video_extensions))}"
+
+#: functions/has_subtitles.py:30
+#, python-brace-format
+msgid "⚠️ ffprobe error: {e}"
+msgstr "⚠️ FFPROBE Erreur: {e}"
+
+#: functions/has_subtitles.py:33
+#, python-brace-format
+msgid "⚠️ JSON decode error: {e}"
+msgstr "⚠️ JSON Decode Erreur: {e}"

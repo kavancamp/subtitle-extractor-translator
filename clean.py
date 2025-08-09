@@ -31,22 +31,24 @@ def run_check(description, command, check_output=False):
 # Run isort with profile and exclusions
 run_check(
     "isort (import sorting)",
-    "isort . --profile=black --line-length=72 --skip='venv'",
+    "isort . --profile=black --line-length=72 --skip='venv' --skip='locales'",
     check_output=True,
 )
 
 # Run black to check formatting
 run_check(
     "black (formatting)",
-    "black . --line-length=72",
+    "black . --line-length=72 --extend-exclude=tests ",
     check_output=True,
 )
 
 # Run flake8 with exclusions
 run_check(
     "flake8 (linting)",
-    "flake8 . --max-line-length=100 --ignore=E128,W503 --exclude=venv",
+    "flake8 . --max-line-length=100 --ignore=E128,W503 --exclude=venv,tests,locales",
     check_output=True,
 )
 
-print("✅ All checks passed. Proceeding with commit.")
+run_check("pytest (testing)", "pytest", check_output=True)
+
+print("✅ All checks passed. Proceed with commit.")
