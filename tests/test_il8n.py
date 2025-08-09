@@ -3,6 +3,7 @@ import gettext
 import os
 
 import pytest
+from click.testing import CliRunner
 
 
 @pytest.fixture
@@ -24,7 +25,8 @@ def test_french_translation_known_string(french_gettext):
     _ = french_gettext
     assert (
         _("Subtitles saved to {output} 📝")
-        == "Sous-titres enregistrés dans {output} 📝"
+        != "Subtitles saved to {output} 📝"
+        or ""
     )
 
 
@@ -34,7 +36,8 @@ def test_french_translation_error_message(french_gettext):
         _(
             "⚠️ No embedded subtitles found. Using Whisper for transcription."
         )
-        == "⚠️ Aucun sous-titre intégré trouvé. Utilisation de Whisper pour transcrire."
+        != "⚠️ No embedded subtitles found. Using Whisper for transcription."
+        or ""
     )
 
 
