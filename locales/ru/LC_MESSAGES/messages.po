@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 09:28-0500\n"
+"POT-Creation-Date: 2025-08-09 11:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,106 +23,109 @@ msgid "❌ Failed to write transcription to {output}: {e}"
 msgstr "❌ Не удалось записать транскрипцию в {output}: {e}"
 
 #: cli.py:113
-msgid "Interface language (e.g., en, es, fr, de). Defaults to English."
+msgid ""
+"Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
+"to English."
 msgstr ""
-"Язык интерфейса (например, EN, ES, FR, DE). По умолчанию на английский."
+"Язык интерфейса (BN, DE, EN, ES, FR, HAW, HI, HMN, KO, RU, UR). По умолчанию"
+" на английский."
 
-#: cli.py:138 cli.py:144
+#: cli.py:139 cli.py:145
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** Добро пожаловать в субтитры экстрактора и переводчика CLI **"
 
-#: cli.py:148
+#: cli.py:149
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- транскрибировать субтитры из видео или аудио"
 
-#: cli.py:159
+#: cli.py:160
 msgid "Language model for transcription (e.g., en, es, zh)."
 msgstr "Языковая модель для транскрипции (например, EN, ES, ZH)."
 
-#: cli.py:162
+#: cli.py:163
 msgid "Output SRT file"
 msgstr "Выход SRT -файл"
 
-#: cli.py:168
+#: cli.py:169
 msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr ""
 "Шепорный размер модели (крошечный, основание, маленький, средний, большой, "
 "турбо)"
 
-#: cli.py:182
+#: cli.py:183
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "Транскрибирование {video_path} с языком {language} to {output}"
 
-#: cli.py:191
+#: cli.py:192
 msgid "Transcription complete."
 msgstr "Транскрипция завершена."
 
-#: cli.py:193 cli.py:278
+#: cli.py:194 cli.py:279
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "Субтитры сохранены в {выходе} 📝"
 
-#: cli.py:198
+#: cli.py:199
 msgid "- Extract subtitles from video; fallback to transcribed"
 msgstr "- Извлечение субтитров из видео; запасная сторона транскрибировать"
 
-#: cli.py:210
+#: cli.py:211
 msgid "Output subtitle file name"
 msgstr "Имя файла вывода"
 
-#: cli.py:215
+#: cli.py:216
 msgid "Language for fallback transcription"
 msgstr "Язык для запасной транскрипции"
 
-#: cli.py:218
+#: cli.py:219
 msgid "Whisper model size to use"
 msgstr "Шепорный размер модели для использования"
 
-#: cli.py:230
+#: cli.py:231
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "🎬 Извлечение субтитров из {video_path} ..."
 
-#: cli.py:237
+#: cli.py:238
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 Встроенные субтитры найдены. Извлечение с помощью ffmpeg ..."
 
-#: cli.py:255
+#: cli.py:256
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ Субтитры извлечены в {выход}"
 
-#: cli.py:263
+#: cli.py:264
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠ Извлечение подзаголовок не удалось. Возвращение к транскрипции ... {err}"
 
-#: cli.py:269
+#: cli.py:270
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠ Внедренных субтитров не обнаружено. Используя шепот для транскрипции."
 
-#: cli.py:276
+#: cli.py:277
 msgid "✅ Fallback transcription complete."
 msgstr "✅ Запасная транскрипция завершена."
 
-#: cli.py:282
+#: cli.py:283
 msgid "- Translate subtitles and save to .srt"
 msgstr "- Перевести субтитры и сохранить на .srt"
 
-#: cli.py:292
+#: cli.py:293
 msgid "Target language (e.g., es, fr, de)"
 msgstr "Целевой язык (например, ES, FR, DE)"
 
-#: cli.py:297
+#: cli.py:298
 msgid "Translated subtitle output file"
 msgstr "Переведенный выходной файл подзаголовок"
 
-#: cli.py:305
+#: cli.py:306
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "Перевод {srt_file} to {target_lang} -> {output}"
