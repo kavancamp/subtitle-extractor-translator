@@ -1,6 +1,4 @@
-# ** in progress **
-
-# 🎬 Subtitle Extractor & Translator CLI
+# 🎬 Subtitle Extractor & Translator CLI  ![dynamic badge](https://github.com/kavancamp/subtitle-extractor-translator/actions/workflows/ci.yml/badge.svg)
 
 ### A powerful command-line tool to extract, transcribe, and translate subtitles from video files using `ffmpeg`, OpenAI's Whisper, and `deep-translator`.
 
