@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 14:13-0500\n"
+"POT-Creation-Date: 2025-08-09 15:51-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,99 +42,99 @@ msgid ""
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** Welina i ka subtitle subtitle a me ka unuhiʻana cli **"
 
-#: cli.py:201
-msgid "Start an interactive shell (type 'exit' to quit)"
-msgstr "E hoʻomaka i kahi mea hana hui (type 'puka' e haʻalele)"
+#: cli.py:202
+msgid "- Start an interactive shell (type 'exit' to quit)"
+msgstr "- E hoʻomaka i kahi mea hana hui (Type 'Exit' e haʻalele)"
 
-#: cli.py:206
+#: cli.py:208
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- ke kākau nei i nā subtitles mai ke wikiō a iʻole ka leo"
 
-#: cli.py:217
+#: cli.py:219
 msgid "Language model for transcription (e.g., en, es, zh)."
 msgstr "Hōʻikeʻike'ōlelo no ka transreption (e.g., e es, zh)."
 
-#: cli.py:220
+#: cli.py:222
 msgid "Output SRT file"
 msgstr "Pūnaewele Pūnaewele Srtput"
 
-#: cli.py:226
+#: cli.py:228
 msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr "Whisper model model (tiny, sums, slum, liʻiliʻi, medium, turbo)"
 
-#: cli.py:240
+#: cli.py:242
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "Ke kākauʻana {wikiō_path} me ka'ōlelo {'ōlelo {} i {puka}"
 
-#: cli.py:249
+#: cli.py:251
 msgid "Transcription complete."
 msgstr "Ka palena palena."
 
-#: cli.py:251 cli.py:336
+#: cli.py:253 cli.py:338
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "Ua mālamaʻia nā '} iā {Kau} 📝"
 
-#: cli.py:256
+#: cli.py:258
 msgid "- Extract subtitles from video; fallback to transcribed"
 msgstr "- E kiʻi i nā subtitles mai ka wikiō; aloha e kiʻiʻia"
 
-#: cli.py:268
+#: cli.py:270
 msgid "Output subtitle file name"
 msgstr "ʻO ka inoa file combtitle file"
 
-#: cli.py:273
+#: cli.py:275
 msgid "Language for fallback transcription"
 msgstr "'Lelo no keʻano o ke keleponaʻana"
 
-#: cli.py:276
+#: cli.py:278
 msgid "Whisper model size to use"
 msgstr "ʻO ka nui o ka hoʻohālike hoʻohālike e hoʻohana ai"
 
-#: cli.py:288
+#: cli.py:290
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "🎬 Ka hukiʻana i nā subtitles mai {wikiō_Path} ..."
 
-#: cli.py:295
+#: cli.py:297
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 nā subtitles i loaʻa. Ka laweʻana me ffmpeg ..."
 
-#: cli.py:313
+#: cli.py:315
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ subtitles i kiʻiʻia i ka {usput}"
 
-#: cli.py:321
+#: cli.py:323
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠️ subtitle exchation iʻole. Ke hāʻule nei i ka hoʻololiʻana ... {err}"
 
-#: cli.py:327
+#: cli.py:329
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠️ʻAʻole i loaʻa nā subtitles i loaʻa. Me ka hoʻohanaʻana i ka hawana no ka "
 "laweʻana."
 
-#: cli.py:334
+#: cli.py:336
 msgid "✅ Fallback transcription complete."
 msgstr "✅ Goveback transcription hoʻopau."
 
-#: cli.py:340
+#: cli.py:342
 msgid "- Translate subtitles and save to .srt"
 msgstr "- unuhi i nā subtitles a hoʻopakele iā ia .srt"
 
-#: cli.py:350
+#: cli.py:352
 msgid "Target language (e.g., es, fr, de)"
 msgstr "Hua'ōlelo Kūlana (e.g., es, fr, de)"
 
-#: cli.py:355
+#: cli.py:357
 msgid "Translated subtitle output file"
 msgstr "Unuhi i nā faila subtitle subtitle"
 
-#: cli.py:363
+#: cli.py:365
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "Unuhi {srt_file} i {pack_lang} -> {kau}"
