@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 11:30-0500\n"
+"POT-Creation-Date: 2025-08-09 14:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cli.py:101
+#: cli.py:39
+msgid ""
+"\n"
+"**Interactive mode** Type 'help' or 'exit'.\n"
+msgstr "** Mode interactif ** Type 'Help' ou 'Exit'."
+
+#: cli.py:151
 #, python-brace-format
 msgid "❌ Failed to write transcription to {output}: {e}"
 msgstr "❌ Échec de l'écriture de la transcription à {Output}: {e}"
 
-#: cli.py:113
+#: cli.py:163
 msgid ""
 "Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
 "to English."
@@ -30,103 +36,107 @@ msgstr ""
 "Langue d'interface (BN, DE, EN, ES, FR, HAW, HI, HMN, KO, RU, UR). Par "
 "défaut en anglais."
 
-#: cli.py:139 cli.py:145
+#: cli.py:191 cli.py:197
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** Bienvenue à l'extracteur et traducteur de sous-titre CLI **"
 
-#: cli.py:149
+#: cli.py:201
+msgid "Start an interactive shell (type 'exit' to quit)"
+msgstr "Démarrez un shell interactif (tapez «sortie» pour quitter)"
+
+#: cli.py:206
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- Transcrire les sous-titres de la vidéo ou de l'audio"
 
-#: cli.py:160
+#: cli.py:217
 msgid "Language model for transcription (e.g., en, es, zh)."
 msgstr "Modèle linguistique pour la transcription (par exemple, EN, ES, ZH)."
 
-#: cli.py:163
+#: cli.py:220
 msgid "Output SRT file"
 msgstr "Sortie du fichier SRT"
 
-#: cli.py:169
+#: cli.py:226
 msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr ""
 "Taille du modèle chuchotement (minuscule, base, petit, moyen, grand, turbo)"
 
-#: cli.py:183
+#: cli.py:240
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "Transcription {video_path} avec le langage {langage} à {output}"
 
-#: cli.py:192
+#: cli.py:249
 msgid "Transcription complete."
 msgstr "Transcription complète."
 
-#: cli.py:194 cli.py:279
+#: cli.py:251 cli.py:336
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "Sous-titres enregistrés sur {output} 📝"
 
-#: cli.py:199
+#: cli.py:256
 msgid "- Extract subtitles from video; fallback to transcribed"
 msgstr "- Extraire sous-titres de la vidéo; Fallback à transcrit"
 
-#: cli.py:211
+#: cli.py:268
 msgid "Output subtitle file name"
 msgstr "Nom du fichier de sous-titres de sortie"
 
-#: cli.py:216
+#: cli.py:273
 msgid "Language for fallback transcription"
 msgstr "Langue pour la transcription de secours"
 
-#: cli.py:219
+#: cli.py:276
 msgid "Whisper model size to use"
 msgstr "Taille du modèle chuchotement à utiliser"
 
-#: cli.py:231
+#: cli.py:288
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "🎬 Extraction de sous-titres de {video_path} ..."
 
-#: cli.py:238
+#: cli.py:295
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 Sous-titres intégrés trouvés. Extraction avec FFMPEG ..."
 
-#: cli.py:256
+#: cli.py:313
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ Sous-titres extraits à {Output}"
 
-#: cli.py:264
+#: cli.py:321
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠️ L'extraction des sous-titres a échoué. Retomber à la transcription ... "
 "{err}"
 
-#: cli.py:270
+#: cli.py:327
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠️ Aucun sous-titres intégrés trouvés. Utilisation de chuchotement pour la "
 "transcription."
 
-#: cli.py:277
+#: cli.py:334
 msgid "✅ Fallback transcription complete."
 msgstr "✅ Transcription de secours complète."
 
-#: cli.py:283
+#: cli.py:340
 msgid "- Translate subtitles and save to .srt"
 msgstr "- traduire les sous-titres et enregistrer sur .srt"
 
-#: cli.py:293
+#: cli.py:350
 msgid "Target language (e.g., es, fr, de)"
 msgstr "Langue cible (par exemple, ES, FR, DE)"
 
-#: cli.py:298
+#: cli.py:355
 msgid "Translated subtitle output file"
 msgstr "Fichier de sortie de sous-titre traduit"
 
-#: cli.py:306
+#: cli.py:363
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "Traduction {SRT_FILE} en {Target_lang} -> {Output}"
