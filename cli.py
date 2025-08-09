@@ -110,7 +110,8 @@ def transcribe_video(
     "--lang",
     default="en",
     help=_(
-        "Interface language (e.g., en, es, fr, de). Defaults to English."
+        "Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). "
+        "Defaults to English."
     ),
 )
 @click.pass_context
