@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 00:20-0500\n"
+"POT-Creation-Date: 2025-08-09 09:28-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,111 +17,111 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cli.py:76
+#: cli.py:101
 #, python-brace-format
 msgid "❌ Failed to write transcription to {output}: {e}"
 msgstr "❌ Ua hikiʻole ke kākau i ke kākau inoaʻana i ka {forput}: {e}"
 
-#: cli.py:88
+#: cli.py:113
 msgid "Interface language (e.g., en, es, fr, de). Defaults to English."
 msgstr ""
 "Palapala Interface (e.g., en, es, fr, devi. Hōʻalo i ka'ōlelo Pelekania."
 
-#: cli.py:113 cli.py:119
+#: cli.py:138 cli.py:144
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** Welina i ka subtitle subtitle a me ka unuhiʻana cli **"
 
-#: cli.py:123
+#: cli.py:148
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- ke kākau nei i nā subtitles mai ke wikiō a iʻole ka leo"
 
-#: cli.py:134
+#: cli.py:159
 msgid "Language model for transcription (e.g., en, es, zh)."
 msgstr "Hōʻikeʻike'ōlelo no ka transreption (e.g., e es, zh)."
 
-#: cli.py:137
+#: cli.py:162
 msgid "Output SRT file"
 msgstr "Pūnaewele Pūnaewele Srtput"
 
-#: cli.py:143
+#: cli.py:168
 msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr "Whisper model model (tiny, sums, slum, liʻiliʻi, medium, turbo)"
 
-#: cli.py:157
+#: cli.py:182
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "Ke kākauʻana {wikiō_path} me ka'ōlelo {'ōlelo {} i {puka}"
 
-#: cli.py:166
+#: cli.py:191
 msgid "Transcription complete."
 msgstr "Ka palena palena."
 
-#: cli.py:168 cli.py:253
+#: cli.py:193 cli.py:278
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "Ua mālamaʻia nā '} iā {Kau} 📝"
 
-#: cli.py:173
+#: cli.py:198
 msgid "- Extract subtitles from video; fallback to transcribed"
 msgstr "- E kiʻi i nā subtitles mai ka wikiō; aloha e kiʻiʻia"
 
-#: cli.py:185
+#: cli.py:210
 msgid "Output subtitle file name"
 msgstr "ʻO ka inoa file combtitle file"
 
-#: cli.py:190
+#: cli.py:215
 msgid "Language for fallback transcription"
 msgstr "'Lelo no keʻano o ke keleponaʻana"
 
-#: cli.py:193
+#: cli.py:218
 msgid "Whisper model size to use"
 msgstr "ʻO ka nui o ka hoʻohālike hoʻohālike e hoʻohana ai"
 
-#: cli.py:205
+#: cli.py:230
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "🎬 Ka hukiʻana i nā subtitles mai {wikiō_Path} ..."
 
-#: cli.py:212
+#: cli.py:237
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 nā subtitles i loaʻa. Ka laweʻana me ffmpeg ..."
 
-#: cli.py:230
+#: cli.py:255
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ subtitles i kiʻiʻia i ka {usput}"
 
-#: cli.py:238
+#: cli.py:263
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠️ subtitle exchation iʻole. Ke hāʻule nei i ka hoʻololiʻana ... {err}"
 
-#: cli.py:244
+#: cli.py:269
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠️ʻAʻole i loaʻa nā subtitles i loaʻa. Me ka hoʻohanaʻana i ka hawana no ka "
 "laweʻana."
 
-#: cli.py:251
+#: cli.py:276
 msgid "✅ Fallback transcription complete."
 msgstr "✅ Goveback transcription hoʻopau."
 
-#: cli.py:257
+#: cli.py:282
 msgid "- Translate subtitles and save to .srt"
 msgstr "- unuhi i nā subtitles a hoʻopakele iā ia .srt"
 
-#: cli.py:267
+#: cli.py:292
 msgid "Target language (e.g., es, fr, de)"
 msgstr "Hua'ōlelo Kūlana (e.g., es, fr, de)"
 
-#: cli.py:272
+#: cli.py:297
 msgid "Translated subtitle output file"
 msgstr "Unuhi i nā faila subtitle subtitle"
 
-#: cli.py:280
+#: cli.py:305
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "Unuhi {srt_file} i {pack_lang} -> {kau}"

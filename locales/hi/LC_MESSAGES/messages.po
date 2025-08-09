@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 00:20-0500\n"
+"POT-Creation-Date: 2025-08-09 09:28-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,109 +17,109 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cli.py:76
+#: cli.py:101
 #, python-brace-format
 msgid "❌ Failed to write transcription to {output}: {e}"
 msgstr "{आउटपुट} पर प्रतिलेखन लिखने में विफल रहा: {ई}"
 
-#: cli.py:88
+#: cli.py:113
 msgid "Interface language (e.g., en, es, fr, de). Defaults to English."
 msgstr "इंटरफ़ेस भाषा (जैसे, एन, ईएस, एफआर, डी)। अंग्रेजी में चूक।"
 
-#: cli.py:113 cli.py:119
+#: cli.py:138 cli.py:144
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** सबटाइटल एक्सट्रैक्टर और ट्रांसलेटर क्लि ** में आपका स्वागत है"
 
-#: cli.py:123
+#: cli.py:148
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- वीडियो या ऑडियो से उपशीर्षक को ट्रांसक्राइब करें"
 
-#: cli.py:134
+#: cli.py:159
 msgid "Language model for transcription (e.g., en, es, zh)."
 msgstr "प्रतिलेखन के लिए भाषा मॉडल (जैसे, एन, ईएस, जेडएच)।"
 
-#: cli.py:137
+#: cli.py:162
 msgid "Output SRT file"
 msgstr "आउटपुट SRT फ़ाइल"
 
-#: cli.py:143
+#: cli.py:168
 msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr "कानाफूसी मॉडल का आकार (छोटा, आधार, छोटा, मध्यम, बड़ा, टर्बो)"
 
-#: cli.py:157
+#: cli.py:182
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "भाषा के साथ {Video_path} को {भाषा} से {आउटपुट} से ट्रांसक्राइब करना"
 
-#: cli.py:166
+#: cli.py:191
 msgid "Transcription complete."
 msgstr "प्रतिलेखन पूरा।"
 
-#: cli.py:168 cli.py:253
+#: cli.py:193 cli.py:278
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "उपशीर्षक {आउटपुट} को सहेजा गया"
 
-#: cli.py:173
+#: cli.py:198
 msgid "- Extract subtitles from video; fallback to transcribed"
 msgstr "- वीडियो से उपशीर्षक निकालें; संक्रमण के लिए गिरावट"
 
-#: cli.py:185
+#: cli.py:210
 msgid "Output subtitle file name"
 msgstr "आउटपुट उपशीर्षक फ़ाइल नाम"
 
-#: cli.py:190
+#: cli.py:215
 msgid "Language for fallback transcription"
 msgstr "पतन प्रतिलेखन के लिए भाषा"
 
-#: cli.py:193
+#: cli.py:218
 msgid "Whisper model size to use"
 msgstr "कानाफूसी मॉडल का आकार उपयोग करने के लिए"
 
-#: cli.py:205
+#: cli.py:230
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "{वीडियो_पाथ} से उपशीर्षक निकालने ..."
 
-#: cli.py:212
+#: cli.py:237
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 एम्बेडेड उपशीर्षक मिला। Ffmpeg के साथ निकालने ..."
 
-#: cli.py:230
+#: cli.py:255
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "} उपशीर्षक {आउटपुट} के लिए निकाला गया"
 
-#: cli.py:238
+#: cli.py:263
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠ उपशीर्षक निष्कर्षण विफल रहा। प्रतिलेखन में वापस गिर रहा है ... {err}"
 
-#: cli.py:244
+#: cli.py:269
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠ कोई एम्बेडेड उपशीर्षक नहीं मिला। प्रतिलेखन के लिए कानाफूसी का उपयोग करना।"
 
-#: cli.py:251
+#: cli.py:276
 msgid "✅ Fallback transcription complete."
 msgstr "✅ फॉलबैक ट्रांसक्रिप्शन पूरा।"
 
-#: cli.py:257
+#: cli.py:282
 msgid "- Translate subtitles and save to .srt"
 msgstr "- उपशीर्षक का अनुवाद करें और .srt को सहेजें"
 
-#: cli.py:267
+#: cli.py:292
 msgid "Target language (e.g., es, fr, de)"
 msgstr "लक्ष्य भाषा (जैसे, ईएस, एफआर, डीई)"
 
-#: cli.py:272
+#: cli.py:297
 msgid "Translated subtitle output file"
 msgstr "अनुवादित उपशीर्षक आउटपुट फ़ाइल"
 
-#: cli.py:280
+#: cli.py:305
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "अनुवाद {srt_file} से {target_lang} -> {आउटपुट}"
