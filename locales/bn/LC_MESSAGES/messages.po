@@ -1,137 +1,144 @@
-# Bengali translations for PACKAGE package.
-# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2025.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 12:34-0500\n"
-"PO-Revision-Date: 2025-08-07 12:34-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: bn\n"
+"POT-Creation-Date: 2025-08-09 00:20-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cli.py:63
-msgid ""
-"currently available for the base cli language: 'bn', 'de', 'es', 'fr', "
-"'haw', 'hi', 'ko','ru', 'ur', 'zh'. Defaults to English."
-msgstr ""
-"বর্তমানে বেস সিএলআই ভাষার জন্য উপলভ্য: 'বিএন', 'ডি', 'এস', 'এফআর', 'হা', "
-"'হাই', 'কো', 'রু', 'উর', 'জেডএইচ'। ইংরেজিতে ডিফল্ট।"
+#: cli.py:76
+#, python-brace-format
+msgid "❌ Failed to write transcription to {output}: {e}"
+msgstr "{আউটপুট}: {ই} এ প্রতিলিপি লিখতে ব্যর্থ"
 
-#: cli.py:70
+#: cli.py:88
+msgid "Interface language (e.g., en, es, fr, de). Defaults to English."
+msgstr "ইন্টারফেস ভাষা (উদাঃ, এন, এস, এফআর, ডিই)। ইংরেজিতে ডিফল্ট।"
+
+#: cli.py:113 cli.py:119
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
-msgstr ""
-"** সাবটাইটেল এক্সট্র্যাক্টর এবং অনুবাদক সিএলআইতে আপনাকে স্বাগতম ** স্বাগতম"
+msgstr "** সাবটাইটেল এক্সট্র্যাক্টর এবং অনুবাদক ক্লিতে স্বাগতম **"
 
-#: cli.py:79
+#: cli.py:123
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- ভিডিও বা অডিও থেকে সাবটাইটেলগুলি প্রতিলিপি করুন"
 
-#: cli.py:88
-msgid "Language model to use for transcription (e.g., bn, en, es,)"
-msgstr ""
-"ট্রান্সক্রিপশন (যেমন, বিএন, এন, এস,) এর জন্য ব্যবহার করার জন্য ভাষা মডেল"
+#: cli.py:134
+msgid "Language model for transcription (e.g., en, es, zh)."
+msgstr "প্রতিলিপি জন্য ভাষা মডেল (উদাঃ, এন, এস, জেডএইচ)।"
 
-#: cli.py:94
-msgid "output SRT file"
+#: cli.py:137
+msgid "Output SRT file"
 msgstr "আউটপুট এসআরটি ফাইল"
 
-#: cli.py:100
-msgid "Whisper model size to use - tiny, base, small, medium, large, turbo"
-msgstr ""
-"হুইস্পার মডেল আকার ব্যবহার করতে - ক্ষুদ্র, বেস, ছোট, মাঝারি, বড়, টার্বো"
+#: cli.py:143
+msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
+msgstr "ফিসফিস মডেল আকার (ক্ষুদ্র, বেস, ছোট, মাঝারি, বৃহত, টার্বো)"
 
-#: cli.py:113
+#: cli.py:157
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "ভাষা {ভাষা} থেকে {আউটপুট} সহ {ভিডিও_পথ} প্রতিলিপি"
 
-#: cli.py:120
+#: cli.py:166
 msgid "Transcription complete."
 msgstr "প্রতিলিপি সম্পূর্ণ।"
 
-#: cli.py:122 cli.py:194
+#: cli.py:168 cli.py:253
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "সাবটাইটেলগুলি {আউটপুট} 📝 এ সংরক্ষণ করা হয়েছে"
 
-#: cli.py:129
-msgid "- Extract subtitles from video, fallback to transcribe if not"
-msgstr "- ভিডিও থেকে সাবটাইটেলগুলি বের করুন, ফ্যালব্যাক প্রতিলিপি না থাকলে"
+#: cli.py:173
+msgid "- Extract subtitles from video; fallback to transcribed"
+msgstr "- ভিডিও থেকে সাবটাইটেলগুলি বের করুন; প্রতিলিপি ফ্যালব্যাক"
 
-#: cli.py:139
+#: cli.py:185
 msgid "Output subtitle file name"
 msgstr "আউটপুট সাবটাইটেল ফাইলের নাম"
 
-#: cli.py:144
+#: cli.py:190
 msgid "Language for fallback transcription"
 msgstr "ফ্যালব্যাক ট্রান্সক্রিপশন জন্য ভাষা"
 
-#: cli.py:147
+#: cli.py:193
 msgid "Whisper model size to use"
 msgstr "হুইস্পার মডেল আকার ব্যবহার করতে"
 
-#: cli.py:152
+#: cli.py:205
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "{ভিডিও_পথ} থেকে সাবটাইটেলগুলি উত্তোলন করা ..."
 
-#: cli.py:158
+#: cli.py:212
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 এমবেডেড সাবটাইটেলগুলি পাওয়া গেছে। Ffmpeg সঙ্গে উত্তোলন ..."
 
-#: cli.py:174
+#: cli.py:230
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ সাবটাইটেলগুলি {আউটপুট} এ নিষ্কাশিত"
 
-#: cli.py:182
+#: cli.py:238
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠ সাবটাইটেল নিষ্কাশন ব্যর্থ হয়েছে। প্রতিলিপিতে ফিরে পড়া ... {ত্রুটি}"
 
-#: cli.py:188
+#: cli.py:244
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠ কোনও এমবেডেড সাবটাইটেল পাওয়া যায় না। ট্রান্সক্রিপশন জন্য হুইস্পার "
 "ব্যবহার করা।"
 
-#: cli.py:192
+#: cli.py:251
 msgid "✅ Fallback transcription complete."
 msgstr "✅ ফ্যালব্যাক ট্রান্সক্রিপশন সম্পূর্ণ।"
 
-#: cli.py:199
+#: cli.py:257
 msgid "- Translate subtitles and save to .srt"
 msgstr "- সাবটাইটেলগুলি অনুবাদ করুন এবং .srt এ সংরক্ষণ করুন"
 
-#: cli.py:207
-msgid "Target language to translate to (e.g., es, fr, de)"
-msgstr "অনুবাদ করার জন্য লক্ষ্য ভাষা (উদাঃ, এস, এফআর, ডি)"
+#: cli.py:267
+msgid "Target language (e.g., es, fr, de)"
+msgstr "লক্ষ্য ভাষা (উদাঃ, এস, এফআর, ডি)"
 
-#: cli.py:212
+#: cli.py:272
 msgid "Translated subtitle output file"
 msgstr "অনুবাদ সাবটাইটেল আউটপুট ফাইল"
 
-#: cli.py:222
+#: cli.py:280
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "{Srt_file} থেকে {টার্গেট_ল্যাং} -> {আউটপুট} অনুবাদ করা"
 
-#: functions/has_subtitles.py:33
+#: functions/validators.py:23
+msgid ""
+"Invalid video format: '{ext}'. Must be one of: {', "
+"'.join(sorted(VALID_VIDEO_EXTENSIONS))}"
+msgstr ""
+"অবৈধ ভিডিও ফর্ম্যাট: '{এক্সট}'। অবশ্যই একটি হতে হবে: {','। জোয়াইন (বাছাই "
+"করা (বৈধ_ভিডিও_ এক্সটেনশনস))}"
+
+#: functions/has_subtitles.py:30
 #, python-brace-format
 msgid "⚠️ ffprobe error: {e}"
 msgstr "⚠ এফফপ্রোব ত্রুটি: {ই}"
 
-#: functions/has_subtitles.py:36
+#: functions/has_subtitles.py:33
 #, python-brace-format
 msgid "⚠️ JSON decode error: {e}"
 msgstr "⚠ জসন ডিকোড ত্রুটি: {ই}"

@@ -1,140 +1,149 @@
-# Spanish translations for PACKAGE package.
-# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2025.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 12:34-0500\n"
-"PO-Revision-Date: 2025-08-07 12:34-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: es\n"
+"POT-Creation-Date: 2025-08-09 00:20-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cli.py:63
-msgid ""
-"currently available for the base cli language: 'bn', 'de', 'es', 'fr', "
-"'haw', 'hi', 'ko','ru', 'ur', 'zh'. Defaults to English."
+#: cli.py:76
+#, python-brace-format
+msgid "❌ Failed to write transcription to {output}: {e}"
+msgstr "❌ No pudo escribir la transcripción a {salida}: {e}"
+
+#: cli.py:88
+msgid "Interface language (e.g., en, es, fr, de). Defaults to English."
 msgstr ""
-"Actualmente disponible para el lenguaje Base CLI: 'Bn', 'de', 'es', 'fr', "
-"'Haw', 'Hi', 'Ko', 'Ru', 'Ur', 'Zh'. Predeterminado al inglés."
+"Lenguaje de interfaz (por ejemplo, EN, ES, FR, DE). Predeterminado al "
+"inglés."
 
-#: cli.py:70
+#: cli.py:113 cli.py:119
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** Bienvenido al extractor y traductor de subtítulos **"
 
-#: cli.py:79
+#: cli.py:123
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- Transcripción de subtítulos de video o audio"
 
-#: cli.py:88
-msgid "Language model to use for transcription (e.g., bn, en, es,)"
-msgstr ""
-"Modelo de lenguaje para usar para la transcripción (por ejemplo, BN, EN, "
-"ES,)"
+#: cli.py:134
+msgid "Language model for transcription (e.g., en, es, zh)."
+msgstr "Modelo de lenguaje para la transcripción (por ejemplo, EN, ES, ZH)."
 
-#: cli.py:94
-msgid "output SRT file"
+#: cli.py:137
+msgid "Output SRT file"
 msgstr "Archivo SRT de salida"
 
-#: cli.py:100
-msgid "Whisper model size to use - tiny, base, small, medium, large, turbo"
+#: cli.py:143
+msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr ""
-"Tamaño del modelo de susurro para usar: pequeño, base, pequeño, mediano, "
-"grande, turbo"
+"Tamaño del modelo de susurro (pequeño, base, pequeño, mediano, grande, "
+"turbo)"
 
-#: cli.py:113
+#: cli.py:157
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "Transcripción {video_path} con lenguaje {lenguaje} a {output}"
 
-#: cli.py:120
+#: cli.py:166
 msgid "Transcription complete."
 msgstr "Transcripción completa."
 
-#: cli.py:122 cli.py:194
+#: cli.py:168 cli.py:253
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "Subtítulos guardados en {salida} 📝"
 
-#: cli.py:129
-msgid "- Extract subtitles from video, fallback to transcribe if not"
-msgstr "- Extraer subtítulos del video, retroceso para transcribir si no"
+#: cli.py:173
+msgid "- Extract subtitles from video; fallback to transcribed"
+msgstr "- Extraer subtítulos del video; retroceso a transcrito"
 
-#: cli.py:139
+#: cli.py:185
 msgid "Output subtitle file name"
 msgstr "Nombre del archivo del subtítulo de salida"
 
-#: cli.py:144
+#: cli.py:190
 msgid "Language for fallback transcription"
 msgstr "Idioma para la transcripción alternativa"
 
-#: cli.py:147
+#: cli.py:193
 msgid "Whisper model size to use"
 msgstr "Tamaño del modelo de susurro para usar"
 
-#: cli.py:152
+#: cli.py:205
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "🎬 Extracción de subtítulos de {video_path} ..."
 
-#: cli.py:158
+#: cli.py:212
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 Subtítulos integrados encontrados. Extracción con ffmpeg ..."
 
-#: cli.py:174
+#: cli.py:230
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ Subtítulos extraídos a {salida}"
 
-#: cli.py:182
+#: cli.py:238
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr ""
 "⚠️ Falló la extracción de subtítulos. Regresando a la transcripción ... "
 "{err}"
 
-#: cli.py:188
+#: cli.py:244
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr ""
 "⚠️ No se encontraron subtítulos incrustados. Usando Whisper para la "
 "transcripción."
 
-#: cli.py:192
+#: cli.py:251
 msgid "✅ Fallback transcription complete."
 msgstr "✅ Completa de transcripción de retroceso."
 
-#: cli.py:199
+#: cli.py:257
 msgid "- Translate subtitles and save to .srt"
 msgstr "- Traducir subtítulos y guardar a .srt"
 
-#: cli.py:207
-msgid "Target language to translate to (e.g., es, fr, de)"
-msgstr "Lenguaje de destino para traducirse a (por ejemplo, ES, FR, DE)"
+#: cli.py:267
+msgid "Target language (e.g., es, fr, de)"
+msgstr "Lenguaje de destino (por ejemplo, ES, FR, DE)"
 
-#: cli.py:212
+#: cli.py:272
 msgid "Translated subtitle output file"
 msgstr "Archivo de salida de subtítulo traducido"
 
-#: cli.py:222
+#: cli.py:280
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "Traducir {srt_file} a {target_lang} -> {output}"
 
-#: functions/has_subtitles.py:33
+#: functions/validators.py:23
+msgid ""
+"Invalid video format: '{ext}'. Must be one of: {', "
+"'.join(sorted(VALID_VIDEO_EXTENSIONS))}"
+msgstr ""
+"Formato de video no válido: '{ext}'. Debe ser uno de: {',' .Join (Sorted "
+"(válido_video_extensions))}"
+
+#: functions/has_subtitles.py:30
 #, python-brace-format
 msgid "⚠️ ffprobe error: {e}"
 msgstr "⚠️ FFProbe Error: {E}"
 
-#: functions/has_subtitles.py:36
+#: functions/has_subtitles.py:33
 #, python-brace-format
 msgid "⚠️ JSON decode error: {e}"
 msgstr "⚠️ JSON Decode Error: {E}"
