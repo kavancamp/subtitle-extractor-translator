@@ -6,7 +6,18 @@ import sys
 from pathlib import Path
 
 import click
-from deep_translator import GoogleTranslator
+
+try:
+    from deep_translator import GoogleTranslator  # real thing
+except Exception:
+    # Lightweight stub so tests can still patch cli.GoogleTranslator.translate
+    class GoogleTranslator:  # type: ignore
+        def __init__(self, *_, **__):
+            raise ImportError("deep-translator not installed")
+
+        def translate(self, *_, **__):
+            raise ImportError("deep-translator not installed")
+
 
 from functions.has_subtitles import has_subtitles
 from functions.validators import validate_video_extension
@@ -296,7 +307,13 @@ def translate(
         )
     )
 
-    translator = GoogleTranslator(source="auto", target=target_lang)
+    try:
+        translator = GoogleTranslator(source="auto", target=target_lang)
+    except ImportError:
+        raise click.ClickException(
+            "The 'deep-translator' package is required for translation. "
+            "Install it with: pip install deep-translator"
+        )
     try:
         Path(output).parent.mkdir(parents=True, exist_ok=True)
         with open(srt_file, "r", encoding="utf-8") as infile, open(
