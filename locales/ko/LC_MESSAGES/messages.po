@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 11:30-0500\n"
+"POT-Creation-Date: 2025-08-09 15:51-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,109 +17,119 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: cli.py:101
+#: cli.py:39
+msgid ""
+"\n"
+"**Interactive mode** Type 'help' or 'exit'.\n"
+msgstr "** 대화식 모드 ** 유형 '도움말'또는 '종료'."
+
+#: cli.py:151
 #, python-brace-format
 msgid "❌ Failed to write transcription to {output}: {e}"
 msgstr "❌ {output}에 전사를 쓰지 못했습니다. : {e}"
 
-#: cli.py:113
+#: cli.py:163
 msgid ""
 "Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
 "to English."
 msgstr "인터페이스 언어 (Bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). 기본값으로 영어로."
 
-#: cli.py:139 cli.py:145
+#: cli.py:191 cli.py:197
 msgid ""
 "\n"
 "**Welcome to Subtitle Extractor & Translator CLI**\n"
 msgstr "** 자막 추출기 및 번역기 CLI에 오신 것을 환영합니다 **"
 
-#: cli.py:149
+#: cli.py:202
+msgid "- Start an interactive shell (type 'exit' to quit)"
+msgstr "- 대화식 쉘 시작 (종료하려면 '종료'유형)"
+
+#: cli.py:208
 msgid "- Transcribe subtitles from video or audio"
 msgstr "- 비디오 또는 오디오에서 자막 전사"
 
-#: cli.py:160
+#: cli.py:219
 msgid "Language model for transcription (e.g., en, es, zh)."
 msgstr "전사를위한 언어 모델 (예 : En, es, Zh)."
 
-#: cli.py:163
+#: cli.py:222
 msgid "Output SRT file"
 msgstr "출력 SRT 파일"
 
-#: cli.py:169
+#: cli.py:228
 msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
 msgstr "Whisper Model Size (작은,베이스, 소규모, 중간, 대형, 터보)"
 
-#: cli.py:183
+#: cli.py:242
 #, python-brace-format
 msgid "Transcribing {video_path} with language {language} to {output}"
 msgstr "{video_path}를 언어로 {video_path} 전사 {language}로 {output}로 전사합니다."
 
-#: cli.py:192
+#: cli.py:251
 msgid "Transcription complete."
 msgstr "전사 완료."
 
-#: cli.py:194 cli.py:279
+#: cli.py:253 cli.py:338
 #, python-brace-format
 msgid "Subtitles saved to {output} 📝"
 msgstr "자막은 {output} 📝에 저장되었습니다"
 
-#: cli.py:199
+#: cli.py:258
 msgid "- Extract subtitles from video; fallback to transcribed"
 msgstr "- 비디오에서 자막 추출; 전사로의 폴백"
 
-#: cli.py:211
+#: cli.py:270
 msgid "Output subtitle file name"
 msgstr "출력 자막 파일 이름"
 
-#: cli.py:216
+#: cli.py:275
 msgid "Language for fallback transcription"
 msgstr "폴백 전사를위한 언어"
 
-#: cli.py:219
+#: cli.py:278
 msgid "Whisper model size to use"
 msgstr "사용할 모델 크기"
 
-#: cli.py:231
+#: cli.py:290
 #, python-brace-format
 msgid "🎬 Extracting subtitles from {video_path}..."
 msgstr "🎬 {video_path}에서 자막 추출 ... ..."
 
-#: cli.py:238
+#: cli.py:297
 msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
 msgstr "📺 삽입 된 자막이 발견되었습니다. ffmpeg로 추출 ..."
 
-#: cli.py:256
+#: cli.py:315
 #, python-brace-format
 msgid "✅ Subtitles extracted to {output}"
 msgstr "✅ {output}에 추출 된 자막이 추출되었습니다."
 
-#: cli.py:264
+#: cli.py:323
 #, python-brace-format
 msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
 msgstr "⚠️ 자막 추출이 실패했습니다. 전사로 돌아 가기 ... {err}"
 
-#: cli.py:270
+#: cli.py:329
 msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
 msgstr "⚠️ 내장 된 자막이 발견되지 않았습니다. 전사를 위해 속삭임 사용."
 
-#: cli.py:277
+#: cli.py:336
 msgid "✅ Fallback transcription complete."
 msgstr "율 폴백 전사가 완료됩니다."
 
-#: cli.py:283
+#: cli.py:342
 msgid "- Translate subtitles and save to .srt"
 msgstr "- 자막을 번역하고 .srt로 저장하십시오"
 
-#: cli.py:293
+#: cli.py:352
 msgid "Target language (e.g., es, fr, de)"
 msgstr "대상 언어 (예 : ES, FR, DE)"
 
-#: cli.py:298
+#: cli.py:357
 msgid "Translated subtitle output file"
 msgstr "번역 된 자막 출력 파일"
 
-#: cli.py:306
+#: cli.py:365
 #, python-brace-format
 msgid "Translating {srt_file} to {target_lang} -> {output}"
 msgstr "{srt_file}을 {target_lang} -> {output}로 변환합니다."

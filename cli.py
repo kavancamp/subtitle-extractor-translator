@@ -31,6 +31,56 @@ except Exception:
             raise ImportError("whisper not installed")
 
     whisper = _WhisperStub()
+import shlex
+
+
+def interactive_loop():
+    # """Simple REPL that runs your Click commands repeatedly."""
+    click.echo(_("\n**Interactive mode** Type 'help' or 'exit'.\n"))
+    while True:
+        try:
+            line = input(">> ").strip()
+        except (EOFError, KeyboardInterrupt):
+            click.echo("")
+            break
+
+        if not line:
+            continue
+        if line in {"exit", "quit"}:
+            break
+
+        if line == "help":
+            try:
+                cli.main(
+                    args=["--help"],
+                    prog_name="cli",
+                    standalone_mode=False,
+                )
+            except SystemExit:
+                pass
+            continue
+        if line.startswith("help "):
+            parts = shlex.split(line)[1:]
+            try:
+                cli.main(
+                    args=parts + ["--help"],
+                    prog_name="cli",
+                    standalone_mode=False,
+                )
+            except SystemExit:
+                pass
+            continue
+
+        try:
+            args = shlex.split(line)
+            cli.main(args=args, prog_name="cli", standalone_mode=False)
+        except click.ClickException as e:
+            # Show Click’s formatted error (includes “Invalid value for 'VIDEO_PATH'” etc.)
+            e.show(file=sys.stdout)
+        except SystemExit:
+            pass
+        except Exception as e:
+            click.secho(f"Error: {e}", fg="red")
 
 
 def _(x):  # placeholder so module import doesn't crash before install
@@ -50,7 +100,7 @@ def set_language(lang: str) -> None:
             domain="messages",
             localedir=localedir,
             languages=[lang],
-            fallback=False,  # change to True if you want silent fallback
+            fallback=True,  # change to True if you want silent fallback
         )
         _ = trans.gettext
         trans.install()  # also sets builtins._
@@ -133,6 +183,8 @@ def cli(ctx: click.Context, lang: str):
                 [sys.executable, sys.argv[0], "--help"],
                 env,
             )
+        interactive_loop()
+        return
 
         # Otherwise, print help in whatever APP_LANG was at import time
         click.echo(
@@ -144,6 +196,13 @@ def cli(ctx: click.Context, lang: str):
         click.echo(
             _("\n**Welcome to Subtitle Extractor & Translator CLI**\n")
         )
+
+
+@cli.command(
+    help=_("- Start an interactive shell (type 'exit' to quit)")
+)
+def shell():
+    interactive_loop()
 
 
 @cli.command(help=_("- Transcribe subtitles from video or audio"))
