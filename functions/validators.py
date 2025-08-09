@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# functions/validators.py
 import gettext
 from pathlib import Path
 
@@ -14,8 +14,7 @@ VALID_VIDEO_EXTENSIONS = {
 }
 
 
-def validate_video_extension_cb(ctx, param, value: str) -> str:
-    """Click callback: validate video extension and return the original value."""
+def validate_video_extension(ctx, param, value):
     _ = gettext.gettext
     ext = Path(value).suffix.lower()
     if ext not in VALID_VIDEO_EXTENSIONS:
@@ -26,8 +25,3 @@ def validate_video_extension_cb(ctx, param, value: str) -> str:
             )
         )
     return value
-
-
-def validate_video_extension(value: str) -> None:
-    """Helper to call from non-Click code (raises BadParameter on error)."""
-    validate_video_extension_cb(None, None, value)
