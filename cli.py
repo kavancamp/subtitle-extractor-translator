@@ -1,77 +1,172 @@
-import json
+import gettext
+import os
 import subprocess
 
 import click
 import whisper  # noqa: F401
 from deep_translator import GoogleTranslator
 
-from functions.transcribe_video import transcribe_video
+from functions.has_subtitles import has_subtitles
+from functions.validators import validate_video_extension_cb
 
 
-def has_subtitles(file_path: str) -> bool:
-    # Check if video file has embedded subtitle tracks using ffprobe.
+# Placeholder _ so module imports don't crash before --lang processed
+def _(x):
+    return x
+
+
+def set_language(lang):
+    global _
+    localedir = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "locales"
+    )
     try:
-        # Run ffprobe - list all streams
-        result = subprocess.run(
-            [
-                "ffprobe",
-                "-v",
-                "error",
-                "-print_format",
-                "json",
-                "-show_streams",
-                "-select_streams",
-                "s",  # 's' = subtitle
-                file_path,
-            ],
-            capture_output=True,
-            text=True,
-            check=True,
+        trans = gettext.translation(
+            domain="messages",
+            localedir=localedir,
+            languages=[lang],
+            fallback=True,
         )
-        data = json.loads(result.stdout)
-
-        # Check if any subtitle streams are present
-        return bool(data.get("streams"))
-    except subprocess.CalledProcessError as e:
-        print(f"⚠️ ffprobe error: {e}")
-        return False
-    except json.JSONDecodeError as e:
-        print(f"⚠️ JSON decode error: {e}")
-        return False
+        _ = trans.gettext
+    except Exception:
+        click.echo(
+            f"⚠️ Translation for '{lang}' not found. Falling back to English."
+        )
+        _ = gettext.gettext
 
 
-@click.group()
-def cli():
-    """Welcome to Subtitle Extractor & Translator CLI"""
-    pass
+def format_timestamp(seconds: float) -> str:
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = seconds % 60
+    ms = int((s - int(s)) * 1000)
+    return f"{h:02}:{m:02}:{int(s):02},{ms:03}"
 
 
-# extract subcommand
-@cli.command()
+def transcribe_video(
+    video_path: str, model: str, language: str, output: str
+) -> None:
+    model_instance = whisper.load_model(model)
+    result = model_instance.transcribe(video_path, language=language)
+
+    try:
+        with open(output, "w", encoding="utf-8") as f:
+            for i, seg in enumerate(result["segments"], start=1):
+                f.write(f"{i}\n")
+                f.write(
+                    f"{format_timestamp(seg['start'])} --> {format_timestamp(seg['end'])}\n"
+                )
+                f.write(f"{seg['text'].strip()}\n\n")
+    except Exception as e:
+        # Bubble up a Click-friendly error the tests can assert on
+        raise click.ClickException(
+            _(f"❌ Failed to write transcription to {output}: {e}")
+        )
+
+
+@click.group(invoke_without_command=True)
+@click.option(
+    "--lang",
+    default="en",
+    help=_(
+        "currently available for the base cli language: "
+        "bn, de, es, fr, haw, hi, hmn, ko, ru, ur "
+        "Defaults to English."
+    ),
+)
+@click.pass_context
+def cli(ctx, lang):
+    set_language(lang)
+    if ctx.invoked_subcommand is None:
+        click.echo(
+            _("\n**Welcome to Subtitle Extractor & Translator CLI**\n")
+        )
+        click.echo(ctx.get_help())
+        click.echo("\n")
+
+
+# **********  transcribe subcommand ************************
+@cli.command(help=_("- Transcribe subtitles from video or audio"))
 @click.argument(
     "video_path",
-    type=click.Path(exists=True),
-)
-@click.option(
-    "--output",
-    default="subtitles.srt",
-    help="Output subtitle file name",
+    type=click.Path(
+        exists=True, dir_okay=False, readable=True, resolve_path=True
+    ),
+    callback=validate_video_extension_cb,
 )
 @click.option(
     "--language",
     default="en",
-    help="Language for fallback transcription",
+    help=_(
+        "Language model to use for transcription (e.g., bn, en, es,)"
+    ),
 )
 @click.option(
-    "--model", default="base", help="Whisper model size to use"
+    "--output",
+    default="transcription.srt",
+    help=_("output SRT file"),
 )
-def extract(video_path, output, language, model):
-    """Extract embedded subtitles, or fallback to Whisper transcription."""
-    click.echo(f"🎬 Extracting subtitles from {video_path}...")
+@click.option(
+    "--model",
+    default="base",
+    help=_(
+        "Whisper model size to use - tiny, base, small, medium, large, turbo"
+    ),
+)
+def transcribe(
+    video_path: str, model: str, language: str, output: str
+) -> None:
+    click.echo(
+        _(
+            "Transcribing {video_path} with language {language} to {output}"
+        ).format(
+            video_path=video_path, language=language, output=output
+        )
+    )
+    transcribe_video(video_path, model, language, output)
+    click.echo(_("Transcription complete."))
+    click.echo(
+        _("Subtitles saved to {output} 📝").format(output=output)
+    )
 
+
+# **************** extract subcommand ************************
+@cli.command(
+    help=_(
+        "- Extract subtitles from video, fallback to transcribe if not"
+    )
+)
+@click.argument(
+    "video_path",
+    type=click.Path(
+        exists=True, dir_okay=False, readable=True, resolve_path=True
+    ),
+    callback=validate_video_extension_cb,
+)
+@click.option(
+    "--output",
+    default="subtitles.srt",
+    help=_("Output subtitle file name"),
+)
+@click.option(
+    "--language",
+    default="en",
+    help=_("Language for fallback transcription"),
+)
+@click.option(
+    "--model", default="base", help=_("Whisper model size to use")
+)
+def extract(
+    video_path: str, output: str, language: str, model: str
+) -> None:
+    click.echo(
+        _("🎬 Extracting subtitles from {video_path}...").format(
+            video_path=video_path
+        )
+    )
     if has_subtitles(video_path):
         click.echo(
-            "📺 Embedded subtitles found. Extracting with ffmpeg..."
+            _("📺 Embedded subtitles found. Extracting with ffmpeg...")
         )
         try:
             subprocess.run(
@@ -86,103 +181,80 @@ def extract(video_path, output, language, model):
                 ],
                 check=True,
             )
-            click.echo(f"✅ Subtitles extracted to {output}")
+            click.echo(
+                _("✅ Subtitles extracted to {output}").format(
+                    output=output
+                )
+            )
             return
         except subprocess.CalledProcessError as e:
             click.echo(
-                f"⚠️ Subtitle extraction failed. Falling back to transcription...{e}"
+                _(
+                    "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
+                ).format(err=e)
             )
+    else:
+        click.echo(
+            _(
+                "⚠️ No embedded subtitles found. Using Whisper for transcription."
+            )
+        )
 
-    click.echo(
-        "⚠️ No embedded subtitles found. Using Whisper for transcription."
-    )
+    # fallback to Whisper
     transcribe_video(video_path, model, language, output)
-    click.echo("✅ Fallback transcription complete.")
-    click.echo(f"Subtitles saved to {output} 📝")
-
-
-# transcribe subcommand
-@cli.command()
-@click.argument(
-    "video_path",
-    type=click.Path(exists=True),
-)
-@click.option(
-    "--language",
-    default="en",
-    help="Language model to use for transcription (e.g., en, es, zh)",
-)
-@click.option(
-    "--output",
-    default="transcription.srt",
-    help="output SRT file",
-)
-@click.option(
-    "--model",
-    default="base",
-    help="Whisper model size to use - tiny, base, small, medium, large, turbo",
-)
-def transcribe(
-    video_path,
-    model,
-    language,
-    output,
-):
-    """Transcribe audio from video using Whisper"""
-
+    click.echo(_("✅ Fallback transcription complete."))
     click.echo(
-        f"Transcribing {video_path} with language {language} to {output}"
+        _("Subtitles saved to {output} 📝").format(output=output)
     )
-    click.echo(
-        f"Transcribing {video_path} with language {language} to {output}"
-    )
-    transcribe_video(video_path, model, language, output)
-
-    click.echo("Transcription complete.")
-    click.echo(f"Subtitles saved to {output} 📝")
 
 
-# translate subcommand
-@cli.command()
+# *************** translate subcommand *********************
+@cli.command(help=_("- Translate subtitles and save to .srt"))
 @click.argument(
     "srt_file",
-    type=click.Path(exists=True),
+    type=click.Path(
+        exists=True, dir_okay=False, readable=True, resolve_path=True
+    ),
 )
 @click.option(
     "--target-lang",
     required=True,
-    help="Target language to translate to (e.g., es, fr, de)",
+    help=_("Target language to translate to (e.g., es, fr, de)"),
 )
 @click.option(
     "--output",
     default="translated.srt",
-    help="Translated subtitle output file",
+    help=_("Translated subtitle output file"),
 )
-def translate(
-    srt_file,
-    target_lang,
-    output,
-):
-    """Translate an SRT file to a target language."""
-
-    click.echo(f"Translating {srt_file} to {target_lang} -> {output}")
-    # translation logic
+def translate(srt_file: str, target_lang: str, output: str) -> None:
+    click.echo(
+        _("Translating {srt_file} to {target_lang} -> {output}").format(
+            srt_file=srt_file, target_lang=target_lang, output=output
+        )
+    )
 
     translator = GoogleTranslator(source="auto", target=target_lang)
+    try:
+        with open(srt_file, "r", encoding="utf-8") as infile, open(
+            output, "w", encoding="utf-8"
+        ) as outfile:
+            for line in infile:
+                if (
+                    "-->" in line
+                    or line.strip().isdigit()
+                    or line.strip() == ""
+                ):
+                    outfile.write(line)
+                else:
+                    translated = translator.translate(line.strip())
+                    outfile.write(translated + "\n")
+    except Exception as e:
+        raise click.ClickException(_(f"❌ Failed to translate: {e}"))
 
-    with open(srt_file, "r", encoding="utf-8") as infile, open(
-        output, "w", encoding="utf-8"
-    ) as outfile:
-        for line in infile:
-            if (
-                "-->" in line
-                or line.strip().isdigit()
-                or line.strip() == ""
-            ):
-                outfile.write(line)
-            else:
-                translated = translator.translate(line.strip())
-                outfile.write(translated + "\n")
+    click.echo(_("✅ Translation complete."))
+    click.echo(
+        _("Subtitles saved to {output} 📝").format(output=output)
+    )
 
 
 if __name__ == "__main__":
