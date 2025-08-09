@@ -37,7 +37,7 @@ jobs:
       - name: Run black
         run: |
           pip install black
-          black . --check --line-length=72 --extend-exclude=tests"
+          black . --check --line-length=72 --extend-exclude=tests
 
       - name: Lint with flake8
         run: |
