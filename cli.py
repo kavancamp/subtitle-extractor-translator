@@ -6,14 +6,20 @@ import sys
 from pathlib import Path
 
 import click
-import whisper  # noqa: F401 # pragma: no cover
+
 from deep_translator import GoogleTranslator
 
 from functions.has_subtitles import has_subtitles
 from functions.validators import validate_video_extension
-
-# ---- i18n bootstrap ---------------------------------------------------------
-
+try:
+    import whisper  # real package, if present
+except Exception:
+    # Minimal stub so `cli.whisper.load_model` exists for mocking
+    class _WhisperStub:
+        def load_model(self, *args, **kwargs):
+            raise ImportError("whisper not installed")
+    whisper = _WhisperStub()
+    
 
 def _(x):  # placeholder so module import doesn't crash before install
     return x
@@ -58,7 +64,14 @@ def format_timestamp(seconds: float) -> str:
 def transcribe_video(
     video_path: str, model: str, language: str, output: str
 ) -> None:
-    model_instance = whisper.load_model(model)
+    try:
+        model_instance = whisper.load_model(model)
+    except Exception as e:
+        # Package not installed or other load error
+        raise click.ClickException(
+            "Whisper is required for transcription. "
+            "Install it with: pip install openai-whisper"
+        ) from e
     result = model_instance.transcribe(video_path, language=language)
 
     try:
