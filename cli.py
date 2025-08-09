@@ -198,7 +198,9 @@ def cli(ctx: click.Context, lang: str):
         )
 
 
-@cli.command(help=_("Start an interactive shell (type 'exit' to quit)"))
+@cli.command(
+    help=_("- Start an interactive shell (type 'exit' to quit)")
+)
 def shell():
     interactive_loop()
 
