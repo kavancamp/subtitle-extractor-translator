@@ -6,51 +6,79 @@ on:
   pull_request:
     branches: [ main ]
 
+# Cancel in-progress runs for the same branch/PR when a new push arrives
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-
-    name: Test with Github Actions 🚀
+  lint:
+    name: Lint & Format ✨
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Set up virtual environment & install dependencies
+      - name: Install lint/format deps
         run: |
-          python -m venv venv
-          source venv/bin/activate
           python -m pip install --upgrade pip
-          pip install openai-whisper
-          pip install deep-translator
+          pip install black isort flake8
 
-      - name: Sort imports with isort
+      - name: isort (check only)
         run: |
-         pip install isort
-         isort . --profile black --line-length=72 --skip="venv" --skip="locales"
+          isort . --check-only --profile black --line-length=72 --skip venv --skip locales
 
-      - name: Run black
+      - name: black (check only)
         run: |
-          pip install black
           black . --check --line-length=72 --extend-exclude=tests
 
-      - name: Lint with flake8
+      - name: flake8
         run: |
-         pip install flake8
-         flake8 . --max-line-length=100 --ignore=E128,W503 --exclude=venv,tests,locales
+          flake8 . --max-line-length=100 --ignore=E128,W503 --exclude=venv,tests,locales
+
+  tests:
+    name: Tests + Coverage 🧪
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install system deps (ffmpeg)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          # Install your runtime deps (and dev if you keep a separate file)
+          if [ -f requirements-dev.txt ]; then
+            pip install -r requirements-dev.txt
+          elif [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          # Ensure test stack present even if not listed
+          pip install pytest pytest-cov
 
       - name: Run tests with coverage
+        env:
+          APP_LANG: en
         run: |
-          pip install pytest pytest-cov
-          pytest --cov=cli --cov=functions --cov-report=term --cov-report=xml
+          pytest --cov=cli --cov=functions --cov-report=term-missing \
+                 --cov-report=xml --cov-report=html
 
-      - name: Upload coverage report
+      - name: Upload coverage artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-report
-          path: coverage.xml
+          name: coverage
+          path: |
+            coverage.xml
+            htmlcov/
