@@ -1,9 +1,10 @@
 from __future__ import annotations
+
 import gettext
 import os
-from typing import Any
 
 _trans: gettext.NullTranslations | gettext.GNUTranslations | None = None
+
 
 def set_language(lang: str = "en") -> None:
     global _trans
@@ -17,6 +18,7 @@ def set_language(lang: str = "en") -> None:
         languages=[lang],
         fallback=True,
     )
+
 
 def _(msg: str) -> str:
     if _trans is None:
