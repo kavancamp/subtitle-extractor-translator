@@ -1,162 +1,260 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Spanish translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 15:51-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-08-16 22:44-0500\n"
+"PO-Revision-Date: 2025-08-16 22:44-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cli.py:39
-msgid ""
-"\n"
-"**Interactive mode** Type 'help' or 'exit'.\n"
-msgstr "** Modo interactivo ** Tipo 'Ayuda' o 'Salir'."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:67
+msgid " is required for transcription. "
+msgstr " es necesaria para la transcripción. "
 
-#: cli.py:151
-#, python-brace-format
-msgid "❌ Failed to write transcription to {output}: {e}"
-msgstr "❌ No pudo escribir la transcripción a {salida}: {e}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:68
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:376
+msgid "Install it with: "
+msgstr "Instálalo con: "
 
-#: cli.py:163
-msgid ""
-"Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
-"to English."
-msgstr ""
-"Idioma de interfaz (Bn, De, ES, ES, FR, HAW, HI, HMN, KO, RU, UR). "
-"Predeterminado al inglés."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:78
+msgid "⚠️ Failed to write transcription: "
+msgstr "⚠️ No se ha podido escribir la transcripción: "
 
-#: cli.py:191 cli.py:197
-msgid ""
-"\n"
-"**Welcome to Subtitle Extractor & Translator CLI**\n"
-msgstr "** Bienvenido al extractor y traductor de subtítulos **"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:98
+msgid "📖 Show this help and exit."
+msgstr "📖 Muestra esta ayuda y sal."
 
-#: cli.py:202
-msgid "- Start an interactive shell (type 'exit' to quit)"
-msgstr ""
-"- Inicie una carcasa interactiva (escriba 'Salir' para dejar de fumar)"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:109
+msgid "🌐 Interface language options: \n"
+msgstr "🌐 Opciones de idioma de la interfaz: "
 
-#: cli.py:208
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:111
+msgid "Defaults to English."
+msgstr "Por defecto en inglés."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:134
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:141
+msgid "** Welcome to "
+msgstr "** Bienvenido a "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:147
 msgid "- Transcribe subtitles from video or audio"
-msgstr "- Transcripción de subtítulos de video o audio"
+msgstr "- Transcribir subtítulos de vídeo o audio"
 
-#: cli.py:219
-msgid "Language model for transcription (e.g., en, es, zh)."
-msgstr "Modelo de lenguaje para la transcripción (por ejemplo, EN, ES, ZH)."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:158
+msgid "Language hint for transcription"
+msgstr "Sugerencia lingüística para la transcripción"
 
-#: cli.py:222
-msgid "Output SRT file"
-msgstr "Archivo SRT de salida"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:164
+msgid "Output '.srt' file"
+msgstr "Archivo de salida '.srt"
 
-#: cli.py:228
-msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:170
+msgid "model size to use."
+msgstr "tamaño del modelo a utilizar."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:172
+msgid "Options: "
+msgstr "Opciones: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:179
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:346
+msgid "Also write plain '.txt' (no numbering/timestamps)."
 msgstr ""
-"Tamaño del modelo de susurro (pequeño, base, pequeño, mediano, grande, "
-"turbo)"
+"Escriba también en formato '.txt' (sin numeración ni marcas de tiempo)."
 
-#: cli.py:242
-#, python-brace-format
-msgid "Transcribing {video_path} with language {language} to {output}"
-msgstr "Transcripción {video_path} con lenguaje {lenguaje} a {output}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:188
+msgid "🎙️ Transcribing "
+msgstr "🎙️ Transcripción "
 
-#: cli.py:251
-msgid "Transcription complete."
-msgstr "Transcripción completa."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:190
+msgid " with language "
+msgstr " con el lenguaje "
 
-#: cli.py:253 cli.py:338
-#, python-brace-format
-msgid "Subtitles saved to {output} 📝"
-msgstr "Subtítulos guardados en {salida} 📝"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:192
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:363
+msgid " to "
+msgstr " a "
 
-#: cli.py:258
-msgid "- Extract subtitles from video; fallback to transcribed"
-msgstr "- Extraer subtítulos del video; retroceso a transcrito"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:200
+msgid "✅ Transcription complete."
+msgstr "✅ Transcripción completa."
 
-#: cli.py:270
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:203
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:289
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:315
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:405
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:444
+msgid "🧹 Clean transcript saved to "
+msgstr "🧹 Transcripción limpia guardada en "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:206
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:319
+msgid "Subtitles saved to "
+msgstr "Subtítulos guardados en "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:211
+msgid "- Extract subtitles from video; fallback to transcription"
+msgstr "- Extraer subtítulos de un vídeo; volver a la transcripción"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:224
 msgid "Output subtitle file name"
-msgstr "Nombre del archivo del subtítulo de salida"
+msgstr "Nombre del archivo de subtítulos de salida"
 
-#: cli.py:275
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:229
 msgid "Language for fallback transcription"
-msgstr "Idioma para la transcripción alternativa"
+msgstr "Idioma de transcripción alternativa"
 
-#: cli.py:278
-msgid "Whisper model size to use"
-msgstr "Tamaño del modelo de susurro para usar"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:235
+msgid " model size to use"
+msgstr " tamaño del modelo a utilizar"
 
-#: cli.py:290
-#, python-brace-format
-msgid "🎬 Extracting subtitles from {video_path}..."
-msgstr "🎬 Extracción de subtítulos de {video_path} ..."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:236
+msgid " (tiny, base, small, medium, large)"
+msgstr " (diminuto, base, pequeño, mediano, grande)"
 
-#: cli.py:297
-msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
-msgstr "📺 Subtítulos integrados encontrados. Extracción con ffmpeg ..."
-
-#: cli.py:315
-#, python-brace-format
-msgid "✅ Subtitles extracted to {output}"
-msgstr "✅ Subtítulos extraídos a {salida}"
-
-#: cli.py:323
-#, python-brace-format
-msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:242
+msgid "Also write plain '.txt' (no timestamps or extra lines)"
 msgstr ""
-"⚠️ Falló la extracción de subtítulos. Regresando a la transcripción ... "
-"{err}"
+"También escribir '.txt' sin formato (sin marcas de tiempo ni líneas "
+"adicionales)"
 
-#: cli.py:329
-msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
-msgstr ""
-"⚠️ No se encontraron subtítulos incrustados. Usando Whisper para la "
-"transcripción."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:251
+msgid "🎬 Extracting subtitles from "
+msgstr "🎬 Extracción de subtítulos de "
 
-#: cli.py:336
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:253
+msgid "... to "
+msgstr "... a "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:261
+msgid "📺 Embedded subtitles found. Extracting with "
+msgstr "📺 Se han encontrado subtítulos incrustados. Extrayendo con "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:282
+msgid "✅ Subtitles saved to "
+msgstr "✅ Subtítulos guardados en "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:297
+msgid "⚠️ Extraction failed. Falling back to transcription."
+msgstr "⚠️ Extracción fallida. Volviendo a la transcripción."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:304
+msgid "⚠️ No embedded subtitles found. Using "
+msgstr "⚠️ No se han encontrado subtítulos incrustados. Utilizando "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:306
+msgid " for transcription."
+msgstr " para la transcripción."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:311
 msgid "✅ Fallback transcription complete."
-msgstr "✅ Completa de transcripción de retroceso."
+msgstr "✅ Transcripción fallback completada."
 
-#: cli.py:342
-msgid "- Translate subtitles and save to .srt"
-msgstr "- Traducir subtítulos y guardar a .srt"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:324
+msgid "- Translate subtitles and save to '.srt' "
+msgstr "- Traducir subtítulos y guardarlos en '.srt' "
 
-#: cli.py:352
-msgid "Target language (e.g., es, fr, de)"
-msgstr "Lenguaje de destino (por ejemplo, ES, FR, DE)"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:334
+msgid "Target language"
+msgstr "Lengua de llegada"
 
-#: cli.py:357
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:340
 msgid "Translated subtitle output file"
-msgstr "Archivo de salida de subtítulo traducido"
+msgstr "Archivo de salida de subtítulos traducidos"
 
-#: cli.py:365
-#, python-brace-format
-msgid "Translating {srt_file} to {target_lang} -> {output}"
-msgstr "Traducir {srt_file} a {target_lang} -> {output}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:361
+msgid "🌐 Translating "
+msgstr "🌐 Traducir "
 
-#: functions/validators.py:23
-msgid ""
-"Invalid video format: '{ext}'. Must be one of: {', "
-"'.join(sorted(VALID_VIDEO_EXTENSIONS))}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:365
+msgid " -> "
+msgstr " -> "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:373
+msgid "The "
+msgstr "En "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:375
+msgid " package is required for translation. \n"
+msgstr " es necesario para la traducción. "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:394
+msgid "⚠️ Translation failed: "
+msgstr "⚠️ La traducción falló: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:397
+msgid "✅ Translation complete. Saved to "
+msgstr "✅ Traducción completa. Guardada en "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:408
+msgid "⚠️ Clean failed: "
+msgstr "⚠️ Ha fallado la limpieza: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:413
+msgid " - Clean an existing '.srt' or '.txt' into plain text\n"
+msgstr " - Limpiar un archivo '.srt' o '.txt' existente en texto sin formato"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:414
+msgid "  (no empty lines or timestamps)."
+msgstr "  (sin líneas vacías ni marcas de tiempo)."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:427
+msgid "Output text file (defaults to input name with '.txt' extension)"
 msgstr ""
-"Formato de video no válido: '{ext}'. Debe ser uno de: {',' .Join (Sorted "
-"(válido_video_extensions))}"
+"Archivo de texto de salida (por defecto es el nombre de entrada con "
+"extensión '.txt')"
 
-#: functions/has_subtitles.py:30
-#, python-brace-format
-msgid "⚠️ ffprobe error: {e}"
-msgstr "⚠️ FFProbe Error: {E}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:434
+msgid "Invalid input file: "
+msgstr "Archivo de entrada no válido: "
 
-#: functions/has_subtitles.py:33
-#, python-brace-format
-msgid "⚠️ JSON decode error: {e}"
-msgstr "⚠️ JSON Decode Error: {E}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:437
+msgid "⚠️ Failed to clean "
+msgstr "⚠️ No se ha limpiado "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:446
+msgid "Done."
+msgstr "Hecho."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:22
+msgid "Invalid video format: '"
+msgstr "Formato de vídeo no válido: '"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:24
+msgid "'. Must be one of: "
+msgstr "'. Debe ser uno de: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:38
+msgid "File must end with: "
+msgstr "El archivo debe terminar con: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:24
+msgid "Error: No input file provided."
+msgstr "Error: No se ha proporcionado ningún archivo de entrada."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:28
+msgid "📄 File not found: "
+msgstr "📄 Archivo no encontrado: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:31
+msgid "Input file must end with: '.srt' or '.txt'"
+msgstr "El archivo de entrada debe terminar en '.srt' o '.txt'."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:40
+msgid "Output file must end with: '.txt'"
+msgstr "El archivo de salida debe terminar con '.txt'"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/has_subtitles.py:34
+msgid " not found in PATH"
+msgstr " no se encuentra en PATH"

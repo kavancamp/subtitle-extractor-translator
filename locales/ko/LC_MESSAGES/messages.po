@@ -1,153 +1,255 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Korean translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 15:51-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-08-16 22:44-0500\n"
+"PO-Revision-Date: 2025-08-16 22:44-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: cli.py:39
-msgid ""
-"\n"
-"**Interactive mode** Type 'help' or 'exit'.\n"
-msgstr "** 대화식 모드 ** 유형 '도움말'또는 '종료'."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:67
+msgid " is required for transcription. "
+msgstr " 는 전사에 필요합니다. "
 
-#: cli.py:151
-#, python-brace-format
-msgid "❌ Failed to write transcription to {output}: {e}"
-msgstr "❌ {output}에 전사를 쓰지 못했습니다. : {e}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:68
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:376
+msgid "Install it with: "
+msgstr "함께 설치하세요: "
 
-#: cli.py:163
-msgid ""
-"Interface language (bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). Defaults "
-"to English."
-msgstr "인터페이스 언어 (Bn, de, en, es, fr, haw, hi, hmn, ko, ru, ur). 기본값으로 영어로."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:78
+msgid "⚠️ Failed to write transcription: "
+msgstr "⚠️ 트랜스크립션 작성에 실패했습니다: "
 
-#: cli.py:191 cli.py:197
-msgid ""
-"\n"
-"**Welcome to Subtitle Extractor & Translator CLI**\n"
-msgstr "** 자막 추출기 및 번역기 CLI에 오신 것을 환영합니다 **"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:98
+msgid "📖 Show this help and exit."
+msgstr "📖 이 도움말을 표시하고 종료합니다."
 
-#: cli.py:202
-msgid "- Start an interactive shell (type 'exit' to quit)"
-msgstr "- 대화식 쉘 시작 (종료하려면 '종료'유형)"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:109
+msgid "🌐 Interface language options: \n"
+msgstr "🌐 인터페이스 언어 옵션: "
 
-#: cli.py:208
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:111
+msgid "Defaults to English."
+msgstr "기본값은 영어입니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:134
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:141
+msgid "** Welcome to "
+msgstr "** 에 오신 것을 환영합니다. "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:147
 msgid "- Transcribe subtitles from video or audio"
-msgstr "- 비디오 또는 오디오에서 자막 전사"
+msgstr "- 비디오 또는 오디오에서 자막 전사하기"
 
-#: cli.py:219
-msgid "Language model for transcription (e.g., en, es, zh)."
-msgstr "전사를위한 언어 모델 (예 : En, es, Zh)."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:158
+msgid "Language hint for transcription"
+msgstr "트랜스 크립 션을 위한 언어 힌트"
 
-#: cli.py:222
-msgid "Output SRT file"
-msgstr "출력 SRT 파일"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:164
+msgid "Output '.srt' file"
+msgstr "출력 '.srt' 파일"
 
-#: cli.py:228
-msgid "Whisper model size (tiny, base, small, medium, large, turbo)"
-msgstr "Whisper Model Size (작은,베이스, 소규모, 중간, 대형, 터보)"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:170
+msgid "model size to use."
+msgstr "사용할 모델 크기를 설정합니다."
 
-#: cli.py:242
-#, python-brace-format
-msgid "Transcribing {video_path} with language {language} to {output}"
-msgstr "{video_path}를 언어로 {video_path} 전사 {language}로 {output}로 전사합니다."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:172
+msgid "Options: "
+msgstr "옵션: "
 
-#: cli.py:251
-msgid "Transcription complete."
-msgstr "전사 완료."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:179
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:346
+msgid "Also write plain '.txt' (no numbering/timestamps)."
+msgstr "또한 일반 '.txt'(번호 매기기/타임스탬프 없음)로 작성합니다."
 
-#: cli.py:253 cli.py:338
-#, python-brace-format
-msgid "Subtitles saved to {output} 📝"
-msgstr "자막은 {output} 📝에 저장되었습니다"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:188
+msgid "🎙️ Transcribing "
+msgstr "🎙️ 트랜스크립션 "
 
-#: cli.py:258
-msgid "- Extract subtitles from video; fallback to transcribed"
-msgstr "- 비디오에서 자막 추출; 전사로의 폴백"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:190
+msgid " with language "
+msgstr " 언어 사용 "
 
-#: cli.py:270
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:192
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:363
+msgid " to "
+msgstr " 에 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:200
+msgid "✅ Transcription complete."
+msgstr "✅ 전사가 완료되었습니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:203
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:289
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:315
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:405
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:444
+msgid "🧹 Clean transcript saved to "
+msgstr "🧹 클린 성적증명서는 다음 주소로 저장됩니다. "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:206
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:319
+msgid "Subtitles saved to "
+msgstr "자막 저장 위치 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:211
+msgid "- Extract subtitles from video; fallback to transcription"
+msgstr "- 비디오에서 자막 추출, 트랜스크립션으로 대체"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:224
 msgid "Output subtitle file name"
 msgstr "출력 자막 파일 이름"
 
-#: cli.py:275
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:229
 msgid "Language for fallback transcription"
-msgstr "폴백 전사를위한 언어"
+msgstr "폴백 트랜스 크립 션용 언어"
 
-#: cli.py:278
-msgid "Whisper model size to use"
-msgstr "사용할 모델 크기"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:235
+msgid " model size to use"
+msgstr " 사용할 모델 크기"
 
-#: cli.py:290
-#, python-brace-format
-msgid "🎬 Extracting subtitles from {video_path}..."
-msgstr "🎬 {video_path}에서 자막 추출 ... ..."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:236
+msgid " (tiny, base, small, medium, large)"
+msgstr " (소형, 기본, 소형, 중형, 대형)"
 
-#: cli.py:297
-msgid "📺 Embedded subtitles found. Extracting with ffmpeg..."
-msgstr "📺 삽입 된 자막이 발견되었습니다. ffmpeg로 추출 ..."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:242
+msgid "Also write plain '.txt' (no timestamps or extra lines)"
+msgstr "타임스탬프나 추가 줄 없이 일반 '.txt' 파일도 작성하세요."
 
-#: cli.py:315
-#, python-brace-format
-msgid "✅ Subtitles extracted to {output}"
-msgstr "✅ {output}에 추출 된 자막이 추출되었습니다."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:251
+msgid "🎬 Extracting subtitles from "
+msgstr "🎬 다음에서 자막 추출 "
 
-#: cli.py:323
-#, python-brace-format
-msgid "⚠️ Subtitle extraction failed. Falling back to transcription...{err}"
-msgstr "⚠️ 자막 추출이 실패했습니다. 전사로 돌아 가기 ... {err}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:253
+msgid "... to "
+msgstr "... 에 "
 
-#: cli.py:329
-msgid "⚠️ No embedded subtitles found. Using Whisper for transcription."
-msgstr "⚠️ 내장 된 자막이 발견되지 않았습니다. 전사를 위해 속삭임 사용."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:261
+msgid "📺 Embedded subtitles found. Extracting with "
+msgstr "📺 임베디드 자막이 발견되었습니다. 다음을 사용하여 추출 "
 
-#: cli.py:336
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:282
+msgid "✅ Subtitles saved to "
+msgstr "✅ 자막 저장 위치 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:297
+msgid "⚠️ Extraction failed. Falling back to transcription."
+msgstr "⚠️ 추출에 실패했습니다. 트랜스크립션으로 돌아갑니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:304
+msgid "⚠️ No embedded subtitles found. Using "
+msgstr "⚠️ 삽입된 자막을 찾을 수 없습니다. 사용 중 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:306
+msgid " for transcription."
+msgstr " 를 입력하세요."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:311
 msgid "✅ Fallback transcription complete."
-msgstr "율 폴백 전사가 완료됩니다."
+msgstr "✅ 폴백 트랜스 크립 션 완료."
 
-#: cli.py:342
-msgid "- Translate subtitles and save to .srt"
-msgstr "- 자막을 번역하고 .srt로 저장하십시오"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:324
+msgid "- Translate subtitles and save to '.srt' "
+msgstr "- 자막을 번역하고 '.srt'에 저장하기 "
 
-#: cli.py:352
-msgid "Target language (e.g., es, fr, de)"
-msgstr "대상 언어 (예 : ES, FR, DE)"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:334
+msgid "Target language"
+msgstr "대상 언어"
 
-#: cli.py:357
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:340
 msgid "Translated subtitle output file"
-msgstr "번역 된 자막 출력 파일"
+msgstr "번역된 자막 출력 파일"
 
-#: cli.py:365
-#, python-brace-format
-msgid "Translating {srt_file} to {target_lang} -> {output}"
-msgstr "{srt_file}을 {target_lang} -> {output}로 변환합니다."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:361
+msgid "🌐 Translating "
+msgstr "🌐 번역 "
 
-#: functions/validators.py:23
-msgid ""
-"Invalid video format: '{ext}'. Must be one of: {', "
-"'.join(sorted(VALID_VIDEO_EXTENSIONS))}"
-msgstr ""
-"잘못된 비디오 형식 : '{ext}'. : { ','.join (sorted (valid_video_extensions)) 중 하나 "
-"여야합니다."
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:365
+msgid " -> "
+msgstr " -> "
 
-#: functions/has_subtitles.py:30
-#, python-brace-format
-msgid "⚠️ ffprobe error: {e}"
-msgstr "⚠️ ffprobe 오류 : {e}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:373
+msgid "The "
+msgstr "그리고 "
 
-#: functions/has_subtitles.py:33
-#, python-brace-format
-msgid "⚠️ JSON decode error: {e}"
-msgstr "⚠️ JSON DECODE 오류 : {e}"
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:375
+msgid " package is required for translation. \n"
+msgstr " 패키지가 번역에 필요합니다. "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:394
+msgid "⚠️ Translation failed: "
+msgstr "⚠️ 번역에 실패했습니다: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:397
+msgid "✅ Translation complete. Saved to "
+msgstr "✅ 번역 완료. 다음에 저장됨 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:408
+msgid "⚠️ Clean failed: "
+msgstr "⚠️ 청소에 실패했습니다: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:413
+msgid " - Clean an existing '.srt' or '.txt' into plain text\n"
+msgstr " - 기존 '.srt' 또는 '.txt' 파일을 일반 텍스트로 정리합니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:414
+msgid "  (no empty lines or timestamps)."
+msgstr "  (빈 줄이나 타임스탬프 없음)."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:427
+msgid "Output text file (defaults to input name with '.txt' extension)"
+msgstr "출력 텍스트 파일(기본값은 '.txt' 확장자를 가진 입력 이름)"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:434
+msgid "Invalid input file: "
+msgstr "잘못된 입력 파일입니다: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:437
+msgid "⚠️ Failed to clean "
+msgstr "⚠️ 청소 실패 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:446
+msgid "Done."
+msgstr "완료되었습니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:22
+msgid "Invalid video format: '"
+msgstr "잘못된 동영상 형식입니다: '"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:24
+msgid "'. Must be one of: "
+msgstr "'. 다음 중 하나여야 합니다: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:38
+msgid "File must end with: "
+msgstr "로 끝나야 합니다: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:24
+msgid "Error: No input file provided."
+msgstr "오류입니다: 입력 파일이 없습니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:28
+msgid "📄 File not found: "
+msgstr "📄 파일을 찾을 수 없습니다: "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:31
+msgid "Input file must end with: '.srt' or '.txt'"
+msgstr "입력 파일의 끝은 '.srt' 또는 '.txt'로 끝나야 합니다."
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:40
+msgid "Output file must end with: '.txt'"
+msgstr "출력 파일은 반드시 '.txt'"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/has_subtitles.py:34
+msgid " not found in PATH"
+msgstr " PATH에서 찾을 수 없음"
