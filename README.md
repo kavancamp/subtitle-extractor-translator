@@ -107,16 +107,18 @@ Example:
 APP_LANG=es python cli.py --help
 python cli.py --lang fr --help
 ```
---lang currently set up for: bn, de, es, fr, haw, hi, hmn, ko, ru, ur \
+--lang currently set up for: , de, en, es, fr, ja, ko, pt, pt-br, ru, zh\
+--lang at runtime changes messages emitted after startup
 APP_LANG=es - a temporary language change for a single run
 
 ### 🈳 Updating Translations
+Requires gettext tools (xgettext, msginit, msgmerge) and polib
 After editing CLI strings:
 <sub>to cli.py and functions or if more languages are need for cli:</sub>
 ```bash
-    python3 auto_translate.py \
-    --source en \
-    --langs bn,de,es,fr,haw,hi,ko,ru,ur,hmn
+python auto_translate.py \
+--source en 
+--langs de,en,es,fr,ja,ko,pt,pt-br,ru,zh
 ```
 
 ## 🧪 Testing, Linting, Formatting:
@@ -154,7 +156,7 @@ subtitle-extractor-translator/
 ├─ functions/
 │  ├─ has_subtitles.py
 │  ├─ validators.py
-│  ├─ format_timestamps.py
+│  ├─ format_timestamp.py
 │  └─ write.py                    # write_segments, clean_srt_file_to_txt
 ├─ tests/
 │  ├─ test_cli.py
