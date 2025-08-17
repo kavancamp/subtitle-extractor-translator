@@ -12,3 +12,5 @@ ignore = ["E128", "W503"]
 max-line-length = 100
 exclude = ["venv", ".tests", "locales"]
 
+[tool.pytest.ini_options]
+pythonpath = ["."]
