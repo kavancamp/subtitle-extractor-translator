@@ -1,0 +1,254 @@
+# Chinese translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-16 22:44-0500\n"
+"PO-Revision-Date: 2025-08-16 22:44-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:67
+msgid " is required for transcription. "
+msgstr " 是转录所必需的。 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:68
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:376
+msgid "Install it with: "
+msgstr "用 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:78
+msgid "⚠️ Failed to write transcription: "
+msgstr "⚠️ 转录失败： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:98
+msgid "📖 Show this help and exit."
+msgstr "📖 显示此帮助并退出。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:109
+msgid "🌐 Interface language options: \n"
+msgstr "🌐 界面语言选项： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:111
+msgid "Defaults to English."
+msgstr "默认为英语。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:134
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:141
+msgid "** Welcome to "
+msgstr "** 欢迎来到 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:147
+msgid "- Transcribe subtitles from video or audio"
+msgstr "- 从视频或音频转录字幕"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:158
+msgid "Language hint for transcription"
+msgstr "转录语言提示"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:164
+msgid "Output '.srt' file"
+msgstr "输出\".srt \"文件"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:170
+msgid "model size to use."
+msgstr "使用的模型尺寸。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:172
+msgid "Options: "
+msgstr "选项： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:179
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:346
+msgid "Also write plain '.txt' (no numbering/timestamps)."
+msgstr "也可写纯文本\".txt\"（无编号/时间戳）。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:188
+msgid "🎙️ Transcribing "
+msgstr "🎙️ 誊写 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:190
+msgid " with language "
+msgstr " 用语言 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:192
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:363
+msgid " to "
+msgstr " 至 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:200
+msgid "✅ Transcription complete."
+msgstr "✅ 转录完成。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:203
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:289
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:315
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:405
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:444
+msgid "🧹 Clean transcript saved to "
+msgstr "🧹 保存到 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:206
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:319
+msgid "Subtitles saved to "
+msgstr "字幕保存到 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:211
+msgid "- Extract subtitles from video; fallback to transcription"
+msgstr "- 从视频中提取字幕；回退到转录"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:224
+msgid "Output subtitle file name"
+msgstr "输出字幕文件名"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:229
+msgid "Language for fallback transcription"
+msgstr "备用转录语言"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:235
+msgid " model size to use"
+msgstr " 使用的模型尺寸"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:236
+msgid " (tiny, base, small, medium, large)"
+msgstr " (微小、基本、小型、中型、大型)"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:242
+msgid "Also write plain '.txt' (no timestamps or extra lines)"
+msgstr "也可写入纯文本\".txt\"（无时间戳或额外行数）"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:251
+msgid "🎬 Extracting subtitles from "
+msgstr "🎬 提取字幕 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:253
+msgid "... to "
+msgstr "... 至 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:261
+msgid "📺 Embedded subtitles found. Extracting with "
+msgstr "📺 找到嵌入的字幕。使用 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:282
+msgid "✅ Subtitles saved to "
+msgstr "✅ 字幕保存到 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:297
+msgid "⚠️ Extraction failed. Falling back to transcription."
+msgstr "⚠️ 提取失败。转回转录。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:304
+msgid "⚠️ No embedded subtitles found. Using "
+msgstr "⚠️ 未找到嵌入式字幕。使用 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:306
+msgid " for transcription."
+msgstr " 用于转录。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:311
+msgid "✅ Fallback transcription complete."
+msgstr "✅ 回退转录完成。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:324
+msgid "- Translate subtitles and save to '.srt' "
+msgstr "- 翻译字幕并保存为\".srt "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:334
+msgid "Target language"
+msgstr "目标语言"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:340
+msgid "Translated subtitle output file"
+msgstr "翻译字幕输出文件"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:361
+msgid "🌐 Translating "
+msgstr "🌐 翻译 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:365
+msgid " -> "
+msgstr " -> "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:373
+msgid "The "
+msgstr "\"(《世界人权宣言》) "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:375
+msgid " package is required for translation. \n"
+msgstr " 软件包需要翻译。 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:394
+msgid "⚠️ Translation failed: "
+msgstr "⚠️ 翻译失败： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:397
+msgid "✅ Translation complete. Saved to "
+msgstr "✅ 翻译完成。保存到 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:408
+msgid "⚠️ Clean failed: "
+msgstr "⚠️ 清洁失败： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:413
+msgid " - Clean an existing '.srt' or '.txt' into plain text\n"
+msgstr " - 将现有的\".srt \"或\".txt \"清除为纯文本"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:414
+msgid "  (no empty lines or timestamps)."
+msgstr "  (无空行或时间戳）。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:427
+msgid "Output text file (defaults to input name with '.txt' extension)"
+msgstr "输出文本文件（默认为扩展名为\".txt \"的输入名称）"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:434
+msgid "Invalid input file: "
+msgstr "输入文件无效： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:437
+msgid "⚠️ Failed to clean "
+msgstr "⚠️ 清洁失败 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/cli.py:446
+msgid "Done."
+msgstr "完成。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:22
+msgid "Invalid video format: '"
+msgstr "视频格式无效：'"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:24
+msgid "'. Must be one of: "
+msgstr "'. 必须是 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/validators.py:38
+msgid "File must end with: "
+msgstr "文件必须以 "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:24
+msgid "Error: No input file provided."
+msgstr "错误：未提供输入文件。"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:28
+msgid "📄 File not found: "
+msgstr "📄 未找到文件： "
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:31
+msgid "Input file must end with: '.srt' or '.txt'"
+msgstr "输入文件必须以.srt \"或\".txt"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/write.py:40
+msgid "Output file must end with: '.txt'"
+msgstr "输出文件必须以.txt \"结尾"
+
+#: /home/kvanc/boot_dev/subtitle-extractor-translator/functions/has_subtitles.py:34
+msgid " not found in PATH"
+msgstr " 在 PATH 中找不到"

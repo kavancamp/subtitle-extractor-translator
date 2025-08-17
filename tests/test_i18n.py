@@ -49,3 +49,10 @@ def test_missing_translation_fallback():
         gettext.translation(
             "messages", localedir=locale_dir, languages=["xx"]
         ).install()
+        
+def test_placeholder_breakage(tmp_path, runner):
+    video = tmp_path / "v.mp4"; video.write_bytes(b"\x00")
+    bad = "🎬 Extracting subtitles from {video_path}... to {outpution_ph}"
+    with patch.object(i18n, "_", side_effect=lambda s: bad if "Extracting subtitles" in s else s):
+        res = runner.invoke(app, ["extract", str(video), "--output", str(tmp_path/"o.srt")])
+        assert res.exit_code != 1

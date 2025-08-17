@@ -1,34 +1,38 @@
-# functions/has_subtitles.py
-# -*- coding: utf-8 -*-
-import gettext
 import json
 import subprocess
 
+from functions.i18n import _
+
+FFPROBE = "ffprobe"
+
 
 def has_subtitles(ctx, file_path: str) -> bool:
-    _ = gettext.gettext
     try:
-        result = subprocess.run(
+        proc = subprocess.run(
             [
                 "ffprobe",
                 "-v",
                 "error",
-                "-print_format",
+                "-of",
                 "json",
                 "-show_streams",
-                "-select_streams",
-                "s",
                 file_path,
             ],
             capture_output=True,
             text=True,
-            check=True,
+            check=False,
         )
-        data = json.loads(result.stdout)
-        return bool(data.get("streams"))
-    except subprocess.CalledProcessError as e:
-        print(_("⚠️ ffprobe error: {e}").format(e=e))
+        if not proc.stdout.strip():
+            if proc.stderr:
+                print("⚠️ ffprobe stderr: " + proc.stderr.strip())
+            return False
+
+        data = json.loads(proc.stdout)
+        streams = data.get("streams", [])
+        return any(s.get("codec_type") == "subtitle" for s in streams)
+    except FileNotFoundError:
+        print("⚠️ {ffprobe}" + _(" not found in PATH"))
         return False
-    except json.JSONDecodeError as e:
-        print(_("⚠️ JSON decode error: {e}").format(e=e))
+    except Exception as e:
+        print("⚠️ ffprobe error: " + str(e))
         return False
