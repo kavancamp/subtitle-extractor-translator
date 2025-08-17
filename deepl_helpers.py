@@ -47,7 +47,7 @@ def protect_placeholders_to_xml(text: str):
 def restore_placeholders_from_xml(
     text: str, restore_map: dict[str, str]
 ) -> str:
-    # Replace longer tags first just in case (not strictly necessary here)
+    # Replace longer tags first just in case
     for tag, orig in sorted(
         restore_map.items(), key=lambda kv: -len(kv[0])
     ):
