@@ -72,13 +72,15 @@ jobs:
         run: |
           pip install pytest pytest-cov
           export PYTHONPATH="$PWD:$PYTHONPATH"
-          pytest --cov=cli --cov=functions --cov-report=term-missing --cov-report=xml
+          pytest --cov=cli --cov=functions \
+                --cov-report=xml:coverage.xml \
+                --cov-report=html:htmlcov \
+                --cov-report=term-missing
 
-
-      - name: Upload coverage artifacts
+      - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: coverage
+          name: coverage-report
           path: |
             coverage.xml
             htmlcov/
