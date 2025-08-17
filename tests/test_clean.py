@@ -11,7 +11,7 @@ import cli as cli_module  # noqa: E402
 app = cli_module.cli
 from functions.write import (
     clean_srt_file_to_txt,
-    clean_srt_lines,
+    clean_srt_lines
 )
 
 
